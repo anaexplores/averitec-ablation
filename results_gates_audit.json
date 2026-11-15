@@ -1,0 +1,189 @@
+{
+ "side": "test",
+ "generated_utc": "2026-11-15T17:16:25+00:00",
+ "gates": [
+  {
+   "gate": "G1",
+   "title": "Protocol freeze: amendments only before the first test-side run; deviations recorded in the protocol",
+   "status": "PASS",
+   "metrics": {
+    "amendments": 2,
+    "deviations": 1,
+    "first_test_run_utc": "2026-11-15T18:05:00+00:00"
+   },
+   "details": [
+    "2 amendment(s) all pre-date the first test run; 1 deviation(s) carry a marker present in every protocol file they declare"
+   ]
+  },
+  {
+   "gate": "G2",
+   "title": "Label blindness: judges never see gold labels; secret labels match the source dataset",
+   "status": "PASS",
+   "metrics": {
+    "labels_checked": 588,
+    "label_mismatches": 0,
+    "leak_hits": 0
+   },
+   "details": [
+    "588 secret labels recomputed from the source dataset, all identical; no leak pattern in any prompt"
+   ]
+  },
+  {
+   "gate": "G3",
+   "title": "Batch identity: the same claims in the same order in every condition",
+   "status": "PASS",
+   "metrics": {
+    "conditions": 3,
+    "claims_per_condition": 196
+   },
+   "details": [
+    "3 conditions share one identical batch composition of 196 claims"
+   ]
+  },
+  {
+   "gate": "G4",
+   "title": "Prompt template identity: instructions identical across conditions and batches (claim count masked)",
+   "status": "PASS",
+   "metrics": {
+    "headers_compared": 30,
+    "drifted": 0,
+    "header_sha256": "f948718f22f07be4"
+   },
+   "details": [
+    "30 instruction headers compared, all identical after masking the claim count (sha256 f948718f22f07be4)"
+   ]
+  },
+  {
+   "gate": "G5",
+   "title": "Model identity: every cell produced by a declared panel model, or by a registered deviation",
+   "status": "PASS",
+   "metrics": {
+    "cells": 120,
+    "deviation_cells": 1,
+    "undeclared_models": 0
+   },
+   "details": [
+    "120 cells checked; 1 registered deviation cell(s); no undeclared model"
+   ]
+  },
+  {
+   "gate": "G6",
+   "title": "Output schema: every judge file is a well-formed array in the declared label vocabulary",
+   "status": "PASS",
+   "metrics": {
+    "files_checked": 120,
+    "files_with_problems": 0
+   },
+   "details": [
+    "120 output files parsed; item numbering, field set and label vocabulary all conform"
+   ]
+  },
+  {
+   "gate": "G7",
+   "title": "Collection integrity: JSONL rows are exactly the manifest claims, verdicts unchanged",
+   "status": "PASS",
+   "metrics": {
+    "pairs_checked": 12
+   },
+   "details": [
+    "12 (judge, condition) files re-derived from the source arrays, all identical"
+   ]
+  },
+  {
+   "gate": "G8",
+   "title": "Exclusion ledger: in EVERY condition the dropped claims are exactly the pre-declared ones",
+   "status": "PASS",
+   "metrics": {
+    "split_n": 200,
+    "declared_exclusions": 4,
+    "effective_n_per_condition": {
+     "A": 196,
+     "B": 196,
+     "C": 196
+    },
+    "labels_of_dropped": [
+     "Refuted",
+     "Supported",
+     "Supported",
+     "Supported"
+    ]
+   },
+   "details": [
+    "200 split claims - 4 declared exclusions = 196 effective, identical in every condition; labels of the dropped claims: ['Refuted', 'Supported', 'Supported', 'Supported']"
+   ]
+  },
+  {
+   "gate": "G9",
+   "title": "Statistics conformance: only the declared family, declared tests, declared sensitivity runs",
+   "status": "PASS",
+   "metrics": {
+    "family": [
+     "A_vs_B",
+     "B_vs_C",
+     "A_vs_C"
+    ],
+    "comparisons_required": 12
+   },
+   "details": [
+    "all 12 declared comparisons present, Holm applied, sensitivity run present for every deviation that requires one"
+   ]
+  },
+  {
+   "gate": "G11",
+   "title": "Cell isolation: exactly one output file per cell, correctly named, no label artefacts beside outputs",
+   "status": "PASS",
+   "metrics": {
+    "expected_cells": 120
+   },
+   "details": [
+    "120 cells, one file each, naming and placement conform, no label artefacts in output dirs"
+   ]
+  },
+  {
+   "gate": "G12",
+   "title": "Quote provenance: quotes verbatim from that condition's own excerpts; zero tolerance for cross-condition bleed",
+   "status": "PASS",
+   "metrics": {
+    "quotes_checked": 2352,
+    "verbatim_in_own_condition": 2297,
+    "unmatched_anywhere": 55,
+    "cross_condition_contamination": 0,
+    "global_match_rate": 0.9766,
+    "per_judge_match_rate": {
+     "claude-haiku-5-5": 0.9949,
+     "deepseek-v4-pro": 0.9218,
+     "gemini-4-argon": 0.9983,
+     "gpt-6-luna": 0.9915
+    }
+   },
+   "details": [
+    "2297/2352 quotes verbatim in their own condition's excerpts, cross-condition contamination 0"
+   ]
+  },
+  {
+   "gate": "G13",
+   "title": "Session ledger: one fresh isolated session per cell, recorded; enforced for cells after required_from",
+   "status": "WARN",
+   "metrics": {
+    "cells": 120,
+    "ledger_rows": 120,
+    "unique_sessions": 0,
+    "reused_sessions": 0,
+    "session_id_not_retained": 120,
+    "missing_entries": 0
+   },
+   "details": [
+    "WARN: 120 cell(s) pre-date ledger enforcement (2026-11-16T00:00:00+00:00); their session ids are marked not-retained rather than invented. Structural isolation (G11) and quote provenance (G12) still audit them."
+   ]
+  },
+  {
+   "gate": "G10",
+   "title": "Report traceability: every number in the draft comes from a results file; required parts present",
+   "status": "WARN",
+   "metrics": {},
+   "details": [
+    "WARN: report draft not written yet (docs/PAPER_DRAFT.md); gate re-runs once it exists"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,109 @@
+{
+  "created": "2026-11-15",
+  "purpose": "Machine-readable register of everything the cleanliness gates (pipeline/gates.py) need: declared panel, protocol events, exclusions, statistics plan, results artefacts. Prose in docs/ is a reminder; this file is what the gates read.",
+  "side": "test",
+  "split_file": "split_seed20261115.json",
+  "conditions": ["A", "B", "C"],
+  "condition_definitions": {
+    "A": "top-5 BM25 support windows, 120 words",
+    "B": "A plus 5 marker caveat windows, 40 words, same article",
+    "C": "A plus 5 caveat windows drawn from a random OTHER article"
+  },
+  "panel": {
+    "claude-haiku-5-5": "opencode-go/claude-haiku-5-5",
+    "deepseek-v4-pro": "opencode-go/deepseek-v4-pro",
+    "gemini-4-argon": "opencode-go/gemini-4-argon",
+    "gpt-6-luna": "opencode-go/gpt-6-luna"
+  },
+  "label_vocabulary": [
+    "Supported",
+    "Refuted",
+    "Not Enough Evidence",
+    "Conflicting Evidence/Cherrypicking"
+  ],
+  "batching": {
+    "batch_size": 20,
+    "n_batches": 10,
+    "last_batch_size": 16,
+    "effective_n": 196,
+    "rule": "identical batching across all conditions and judges; one independent verdict per claim"
+  },
+  "exclusions": {
+    "file": "data/unavailable_articles.json",
+    "side_field": "test",
+    "expected_excluded": 4,
+    "reason": "misbar.com JS-rendered Wayback captures with no static text; declared before any judge run",
+    "effective_n_after": 196
+  },
+  "first_test_run_utc": "2026-11-15T18:05:00+00:00",
+  "protocol_events": [
+    {
+      "type": "amendment",
+      "id": "amendment-1",
+      "recorded_utc": "2026-11-15T16:40:00+00:00",
+      "summary": "Judge inference through OpenCode subagent sessions instead of the OpenRouter API; claims batched 20 per session; identical batching across conditions and judges."
+    },
+    {
+      "type": "amendment",
+      "id": "amendment-2",
+      "recorded_utc": "2026-11-15T17:20:00+00:00",
+      "summary": "Judge panel fixed to the OpenCode Go pool, one model per family: claude-haiku-5-5, gemini-4-argon, gpt-6-luna, deepseek-v4-pro."
+    },
+    {
+      "type": "deviation",
+      "id": "deviation-deepseek-A-batch00",
+      "recorded_utc": "2026-11-15T19:10:00+00:00",
+      "cell": {
+        "judge": "deepseek-v4-pro",
+        "condition": "A",
+        "batch": 0
+      },
+      "declared_model": "opencode-go/deepseek-v4-pro",
+      "model_used": "opencode/deepseek-v4.1-flash-free",
+      "reason": "Three provider content-filter blocks ('Provider blocked the response'), including one attempt with a no-profanity-quote instruction.",
+      "handling": "All DeepSeek comparisons involving condition A are reported both with this batch (mixed-model cell, labelled) and without it (176 claims, single model). The excluded-batch result is primary if the two disagree.",
+      "requires_sensitivity_run": true,
+      "protocol_markers": {
+        "C:/Users/Anastasia/Projects/demand radar/research/apart-epistemics-2026-11/methods_db.json": "DEVIATION, logged 2026-11-15",
+        "C:/Users/Anastasia/Projects/demand radar/research/apart-epistemics-2026-11/05_METHODS_AND_DATA_PROTOCOL.md": "Задокументированное отклонение, 15.11.2026"
+      }
+    }
+  ],
+  "protocol_files": [
+    "C:/Users/Anastasia/Projects/demand radar/research/apart-epistemics-2026-11/methods_db.json",
+    "C:/Users/Anastasia/Projects/demand radar/research/apart-epistemics-2026-11/05_METHODS_AND_DATA_PROTOCOL.md"
+  ],
+  "statistics_plan": {
+    "primary_metric": "exact-match accuracy of the 4-way verdict against the AVeriTeC label, per (judge, condition)",
+    "interval": "95% Wilson (Brown/Cai/DasGupta), not Wald",
+    "paired_test": "exact McNemar on correct/incorrect pairs",
+    "family": ["A_vs_B", "B_vs_C", "A_vs_C"],
+    "mandatory": ["A_vs_B", "B_vs_C"],
+    "correction": "Holm within the declared family",
+    "pooling": "never pooled across judges",
+    "per_label_breakdown": true,
+    "mde_note": "exact McNemar on n=196 paired claims needs >=7 net discordant pairs to survive Holm across the two mandatory comparisons, i.e. about 3.6 percentage points"
+  },
+  "results_files": {
+    "main": "results_score_test_main.txt",
+    "deepseek_excluded": "results_score_test_deepseek_excl.txt"
+  },
+  "quote_provenance": {
+    "min_global_match_rate": 0.95,
+    "min_judge_match_rate": 0.9,
+    "contamination_zero_tolerance": true,
+    "note": "A quote must appear verbatim (case/quote-normalised) in the excerpts shown with that claim in that condition. Contamination (absent from its own condition, present in another condition's text for the same claim) fails hard at any count: it would mean a session saw another condition's context. Paraphrasing is a data-quality defect, not contamination: the global rate must clear min_global_match_rate, and any judge below min_judge_match_rate is reported as a WARN and must be disclosed in the paper."
+  },
+  "ledger": {
+    "file": "data/session_ledger.jsonl",
+    "required_from_utc": "2026-11-16T00:00:00+00:00",
+    "note": "Cells produced before required_from_utc are audited structurally only; the orchestrator log was not retained as a machine artefact, so their session ids are marked not-retained rather than invented."
+  },
+  "report": {
+    "draft": "docs/PAPER_DRAFT.md",
+    "abstract_words_min": 150,
+    "abstract_words_max": 250,
+    "required_appendix_heading": "Limitations and Dual-Use",
+    "max_pages_before_refs": 8
+  }
+}
