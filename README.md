@@ -18,11 +18,16 @@ prompt template, identical claim; only the composition of the retrieved context 
 ## Status
 
 - [x] data download + manifest (data/train.json 3,068 claims, data/dev.json 500 claims)
-- [x] article fetcher with Wayback-banner cleanup (smoke-tested 20/20)
-- [ ] tuning-pool article fetch (dev.json, 371 articles) — running
-- [ ] split file (grouped by `fact_checking_article`, stratified by label, fixed seed)
-- [ ] ablation runner (conditions A/B/C)
-- [ ] judge runs, statistics, report
+- [x] article fetcher with Wayback-banner cleanup (throttle-safe: 1 worker, 3 s delay)
+- [x] split file (grouped by `fact_checking_article`, stratified by label, seed 20261115;
+      cross-file article overlap excluded from tuning, 0 shared articles between sides)
+- [x] unavailable-article exclusions pre-declared BEFORE any judge run
+      (data/unavailable_articles.json; JS-rendered Wayback captures with no static text)
+- [x] ablation runner (conditions A/B/C) + statistics (Wilson, exact McNemar, Holm)
+- [ ] tuning-pool article fetch: 350/371 ok, 21 unavailable (misbar.com JS captures)
+- [ ] test-side article fetch: running
+- [ ] sanity run (3 tuning claims, 1 judge), full test run A/B (4 judges), condition C
+- [ ] report
 
 ## Data provenance
 

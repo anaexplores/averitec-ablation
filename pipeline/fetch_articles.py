@@ -201,7 +201,8 @@ def main(argv=None):
     out_dir = os.path.join(ROOT, "fulltext")
     os.makedirs(out_dir, exist_ok=True)
     manifest = load_manifest()
-    todo = [u for u in article_urls(args.averitec_file) if u not in manifest]
+    todo = [u for u in article_urls(args.averitec_file)
+            if u not in manifest or "error" in manifest[u]]
     if args.limit:
         todo = todo[: args.limit]
     print(f"{len(todo)} URLs to fetch ({len(manifest)} already in manifest)")

@@ -1,0 +1,63 @@
+{
+ "created": "2026-11-15",
+ "note": "Claims whose fact_checking_article has no static text in the Wayback Machine capture (JS-rendered pages, HTTP 200 but empty after banner cleanup). Excluded from ALL conditions equally, before any judge run; the split itself is untouched (seed 20261115). Test-side exclusions appended 2026-11-15 after the test article fetch completed and before any judge run; same cause (misbar.com JS-rendered Wayback captures).",
+ "excluded_claims": [
+  {
+   "claim_id": "dev-0031-f62621f67aaa",
+   "label": "Supported",
+   "article": "https://web.archive.org/web/20210226092601/https://misbar.com/en/factcheck/2020/10/27/senate-confirms-amy-coney-barrett-to-supreme-court"
+  },
+  {
+   "claim_id": "dev-0098-df4b67b37bca",
+   "label": "Supported",
+   "article": "https://web.archive.org/web/20210301220920/https://misbar.com/en/factcheck/2020/10/14/iphone-12-will-come-without-charger-and-headphones"
+  },
+  {
+   "claim_id": "dev-0138-13c32bb2a7fb",
+   "label": "Supported",
+   "article": "https://web.archive.org/web/20210228124446/https://misbar.com/en/factcheck/2020/10/08/fly-swatters-in-bidens-ttore"
+  },
+  {
+   "claim_id": "dev-0170-01209e08eb67",
+   "label": "Supported",
+   "article": "https://web.archive.org/web/20210307085116/https://misbar.com/en/factcheck/2020/10/06/trump-is-out-of-the-hospital"
+  },
+  {
+   "claim_id": "dev-0257-05281da6bd41",
+   "label": "Supported",
+   "article": "https://web.archive.org/web/20210720230340/https://misbar.com/en/factcheck/2020/09/28/man-sentenced-to-one-year-in-jail-for-throwing-parties"
+  },
+  {
+   "claim_id": "dev-0326-6941f778908b",
+   "label": "Refuted",
+   "article": "https://web.archive.org/web/20210228055545/https://misbar.com/en/factcheck/2020/11/28/covid-probably-didn%E2%80%99t-come-from-a-chinese-lab"
+  },
+  {
+   "claim_id": "test-0014-a24ce697f24b",
+   "side": "test",
+   "label": "Supported",
+   "article": "https://web.archive.org/web/20210306163409/https://misbar.com/en/factcheck/2020/12/05/covid-19-outbreak-discovered-in-oregon-minks"
+  },
+  {
+   "claim_id": "test-0020-30f827b65509",
+   "side": "test",
+   "label": "Refuted",
+   "article": "https://web.archive.org/web/20210304123852/https://misbar.com/en/factcheck/2020/07/23/netflix-cancels-turkish-series"
+  },
+  {
+   "claim_id": "test-0033-6b0fa28b627b",
+   "side": "test",
+   "label": "Supported",
+   "article": "https://web.archive.org/web/20210720224630/https://misbar.com/en/factcheck/2020/07/05/covid-19-surcharges-applied-in-the-usa-and-uk"
+  },
+  {
+   "claim_id": "test-0048-f517e626a514",
+   "side": "test",
+   "label": "Supported",
+   "article": "https://web.archive.org/web/20210721085036/https://misbar.com/en/factcheck/2020/05/20/has-covid-19-created-the-highest-level-of-unemployment-in-the-us-since-the-great-depression"
+  }
+ ],
+ "tuning_side_effective_n": 94,
+ "test_side": "test-side exclusions will be appended after the test article fetch completes, before any judge run",
+ "test_side_effective_n": 196
+}
