@@ -1,0 +1,24 @@
+{
+  "created": "2026-11-15",
+  "source": "https://github.com/MichSchli/AVeriTeC (official AVeriTeC repository)",
+  "license": "CC BY-NC 4.0",
+  "files": [
+    {
+      "file": "data/train.json",
+      "sha256": "AE5EDA7C42DDF1695EF185A7BA1BC716928F5ADF57103E4F78AAE5F9AFE00F9C",
+      "bytes": 10184813,
+      "claims": 3068,
+      "labels": { "Supported": 849, "Refuted": 1742, "Conflicting Evidence/Cherrypicking": 195, "Not Enough Evidence": 282 },
+      "downloaded": "2026-11-15"
+    },
+    {
+      "file": "data/dev.json",
+      "sha256": "499793726B4A5406780928A3D9DEDC48D6DD53DE778F22437D129CACDB08E300",
+      "bytes": 1785475,
+      "claims": 500,
+      "labels": { "Supported": 122, "Refuted": 305, "Conflicting Evidence/Cherrypicking": 38, "Not Enough Evidence": 35 },
+      "downloaded": "2026-11-15"
+    }
+  ],
+  "notes": "Counts and label distributions verified locally after download and cross-checked against live GitHub fetch on 2026-11-15. Official test-side labels are not public (held by shared-task organizers); the sprint test side will be drawn from train.json grouped by fact_checking_article with a fixed seed."
+}

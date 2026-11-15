@@ -1,0 +1,785 @@
+[
+ {
+  "url": "https://web.archive.org/web/20200831011338/https://checkyourfact.com/2020/03/09/fact-check-cdc-beard-styles-coronavirus/",
+  "key": "6ee7f20d4c882b12",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "d6793833c0f418772eb65e97aeeb8db918d6be624e6d8fd3d262568c6e664ddb",
+  "chars": 3595,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200902012144/https://leadstories.com/hoax-alert/2020/09/fact-check-jacob-blake-was-not-facing-accusation-that-he-raped-a-14-year-old-when-he-was-shot-by-police.html",
+  "key": "c05410ee62fed074",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "284f124c1ff8644ed924a0f28ed8131b9d30e5a31c94f0ecba35573c7a65d6a5",
+  "chars": 9466,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200903014642/https://leadstories.com/hoax-alert/2020/06/fact-check-robert-e-lee-was-a-slave-owner-and-so-was-ulysses-s-grant.html",
+  "key": "8e7535e567156951",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "d8e8860859efb5bbba8271e02887bfb99e88006a72cc01b7aaad13bfe70731ac",
+  "chars": 12650,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200903041636/https://factcheck.afp.com/misleading-claim-circulates-facebook-duterte-has-signed-order-open-nuclear-power-plant",
+  "key": "95f699915ac75add",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "5d6bd0ee57a4555592709848cedcc85d0b5fc86361b239c0c3d2f25b01495e0f",
+  "chars": 4062,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200906180833/https://leadstories.com/hoax-alert/2020/09/fact-check-mark-zuckerberg-did-not-declare-richard-jewell-to-be-a-mass-murderer-or-ban-him-from-raising-money-on-facebook.html",
+  "key": "2d747232cf07cc6f",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "358bf05547c60c881df174d920b986344a1c56a9bcc67b2093125740305632b7",
+  "chars": 8151,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200907100440/https://www.indiatoday.in/fact-check/story/no-taiwan-did-not-shoot-down-a-chinese-su-35-fighter-jet-1718774-2020-09-04",
+  "key": "fd3ecf90f2ed4f69",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "994b5825b84c7aa6894aac1bc257dd825192e4f7531ec7ed00cfef2c09e2c0ca",
+  "chars": 5960,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200920005906/https://www.thequint.com/news/webqoof/accidental-burning-of-idol-in-bengals-murshidabad-viral-with-false-communal-angle",
+  "key": "203a5d3e444914f1",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "880e29af1c0dba1648408f6f289545cdaaaa240286091460014348424eda2584",
+  "chars": 5291,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200924113815/https://checkyourfact.com/2020/09/04/fact-check-susan-collins-endorse-trump-fully-support/",
+  "key": "6213c0855f887d73",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "bf551aa1140c8b6db8de45fdd73a5fa41cc230bde5288ed2e6356c91bd3600b9",
+  "chars": 2737,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200927122803/http://newsmobile.in/articles/2020/09/15/fact-check-does-upsc-differentiate-between-aspirants-based-on-religion-heres-the-truth/",
+  "key": "df1a906074d685a9",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "844b5bfe6b3aedb1cfb431ea525d4c0cad4596fabc4b6d732b7ccb148b7b7e31",
+  "chars": 6489,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20200928030443/https://leadstories.com/hoax-alert/2020/09/fact-check-western-wildfires-are-not-evidence-of-a-coordinated-campaign-to-burn-the-country-down.html",
+  "key": "f65b300b8d5fa7e8",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "8b1bdda18cffd1d75def05d709554c8a99de1577f6df508ef1fc5696e6861b28",
+  "chars": 8902,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201002180455/https://leadstories.com/hoax-alert/2020/09/fact-check-george-soros-does-not-own-two-sigma-investments.html",
+  "key": "530406af1c4e6e25",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "db91a284c3c8788a7d080b464d1a7216393ccf42f2eba354c6cd9be59ca24983",
+  "chars": 7888,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201003215812/http://newsmobile.in/articles/2020/09/21/fact-check-who-has-not-approved-home-remedy-for-covid-19-dont-fall-for-misinformation/",
+  "key": "fa70aa6867ceee8d",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "ed6b07442e5f6ec6e986ede2e4e8495a69fa460f2d3f24fa3c9b8c2c375c75da",
+  "chars": 6346,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201006135825/https://leadstories.com/hoax-alert/2020/09/fact-check-donald-trump-did-not-tweet-that-hes-donating-500,000-each-to-two-wounded-los-angeles-county-deputy-sheriffs.html",
+  "key": "c389b0323b35ca8e",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "e1326fe893b16fbc85259abecfadaf6727526c96d7404dee2d1ebb447d71c0b6",
+  "chars": 6522,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201019235720/https://newsmeter.in/ex-pm-lal-bahadur-shastris-wife-repaid-rs-5k-loan-taken-from-pnb-after-his-death/",
+  "key": "34115ffad69abb24",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "13d12ed1bea46611cea0f39926dab04c43c3a804608887362b72764695871d44",
+  "chars": 7232,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201020221638/https://fullfact.org/health/boris-johnson-quarantine-500/",
+  "key": "ca96225c1bcbf26a",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "1501c07038f6127852b838203737136dfb86d641eab8ab62c6a62491d56e02f5",
+  "chars": 3826,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201021110859/https://fullfact.org/health/parliament-distancing-covid/",
+  "key": "73b156291782ad0c",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "f3cc0a9cf27ba9370bdca72362162ee3bfcf9ee2a619f2927443587ef34353f1",
+  "chars": 4215,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201023003450/https://www.indiatoday.in/fact-check/story/did-top-us-health-body-replace-pandemic-with-outbreak-for-covid19-1721485-2020-09-13",
+  "key": "94f18612f8bf5d67",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "79e54a320b43e58dc26aad591ca5e026d7c7c537b3173b9099765a4eff44531d",
+  "chars": 5524,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201024123327/https://www.politifact.com/factchecks/2020/sep/22/facebook-posts/no-ruth-bader-ginsburg-wasnt-confirmed-supreme-cou/",
+  "key": "32ed5d0c94319308",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "0f112bfd70c724c7656909d1829fbf1457970b63eea6cb4adbce5b44901bfaa3",
+  "chars": 10962,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201025164005/https://newsmeter.in/fact-check-claims-about-swiss-squash-player-ambre-allinckxs-refusal-to-play-in-india-due-to-safety-reasons-are-false/",
+  "key": "759b22f22883699b",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "b3da4b5e7ea687339f3b4babe11c6f52e9ebdfa932b496f221f3ffcce4d977e5",
+  "chars": 7543,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201025164239/http://newsmobile.in/articles/2020/09/12/fact-check-nita-ambani-did-not-give-rs-200-crore-for-kangana-ranauts-new-studio-heres-the-truth/",
+  "key": "b75b951d722dfc7e",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "e958438940cbe14b761755f67533fecd21f5bd7b4d23114b338fd65f7ff189f9",
+  "chars": 5013,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201025164345/https://newsmeter.in/fact-check-viral-claim-that-government-is-distributing-free-laptops-to-students-is-fake/",
+  "key": "25a76e5b4517d3f0",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "57df082e4cea6bb7447bf5a49983d3e7a2c8257a4825cecc0f1f30594dd74ba4",
+  "chars": 6862,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201026064418/https://newsmeter.in/fact-check-yes-indian-govt-has-launched-online-health-consultation-scheme/",
+  "key": "602ede010c4de05e",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "240d319615d9d23cae86acd5d91d96c91979a08dae4a375049bca148e7cf1c25",
+  "chars": 7479,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201028192252/https://newsmeter.in/fact-check-yes-hmwssb-delivering-1kg-bleaching-powder-chlorine-tablets-to-peoples-doorsteps/",
+  "key": "38092addebb32de3",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "114147a76380129b15d1db51432aaeb632aac38904af671530c3f9f411ad60c0",
+  "chars": 8073,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201028195759/https://newsmeter.in/fact-check-actor-turned-chandigarh-bjp-mp-kirron-kher-did-not-say-rape-is-part-of-indian-culture/",
+  "key": "76ac8e890ea350b2",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "2e2de09815e81c804fe384388590a5c3a25ed95e1d7b29c4ad6e5f00e3412633",
+  "chars": 5539,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201030040136/https://newsmeter.in/fact-check-distance-between-gandhi-and-green-thread-cannot-determine-rs-500-note-is-genuine-or-fake/",
+  "key": "2b91e69b51a24721",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "e01276481280c8890fef4b3d89e358d547782284c3e9c4e5ea335f76a681f101",
+  "chars": 6052,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201031080541/https://leadstories.com/hoax-alert/2020/10/fact-check-amber-alert-was-not-issued-for-license-plate-q72b381.html",
+  "key": "4952dfecfc7f3215",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "121dede9a6151b3d8b200e2280599b8c4da36ad0155e62ff73904a99270b1882",
+  "chars": 7418,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201031104857/https://leadstories.com/hoax-alert/2020/09/fact-check-wildfires-do-affect-mexico-and-canada.html",
+  "key": "27f1f9ac8fe0eac0",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "97085d737371098a34d18518ba4fa45a1d15afd16424adfdb1c9c54d581603ba",
+  "chars": 7794,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101001018/https://leadstories.com/hoax-alert/2020/10/projection-of-the-biden-harris-logo-on-a-harley-davidson-building-was-not-an-endorsement-by-the-business.html",
+  "key": "e7b40ab06568a6b7",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "ca279e45afae5ab70f7dd58bc468a14086bf19d474a70d09e3246ce827a541af",
+  "chars": 6811,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101024850/http://newsmobile.in/articles/2020/10/22/fact-check-has-indias-imports-from-china-increased-by-27-in-april-august-heres-the-truth/",
+  "key": "188de24d6f8564dd",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "7651c66d8eaebf44f0853ccbe727b65c37edd545c120054248e5382e0da3611a",
+  "chars": 6020,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101025121/https://newsmeter.in/fact-check-paul-pogba-did-not-quit-french-football-team-after-president-macrons-remarks-on-islam/",
+  "key": "4c709303c21fab1e",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "2171a0c6aa39e26cb27effe36b88297e0f3e79429adfa5203536a5e32d85164a",
+  "chars": 7551,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101032342/https://leadstories.com/hoax-alert/2020/10/fact-check-warning-not-just-for-biden-tweets-new-policy-applies-to-all-users.html",
+  "key": "57e7ca33625a2b4d",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "47b5b690fdbe90ef4ec9cbdea0b8260e6826960fcddcf19505c81f72b0ad88cb",
+  "chars": 7841,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101071344/https://www.vishvasnews.com/english/politics/fact-check-former-bjym-leaders-picture-viral-with-fake-claim/",
+  "key": "ab7138b39d0762cc",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "1583672623bf3831053df48b84d7fc99a9fd00b960f11de148fee0403a004040",
+  "chars": 5198,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101083047/http://newsmobile.in/articles/2020/10/21/fact-check-viral-news-about-major-blunder-in-neet-2020-exam-results-is-fake-heres-the-truth/",
+  "key": "777fea9af7c9c32d",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "630c9a49082431c3c0e98c816625c88d376a9e61c2e1786879acf6a01eb66512",
+  "chars": 5630,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101141912/https://dubawa.org/misleading-newspaper-report-claims-daughters-of-buhari-osinbajo-facilitated-dissolution-of-sars/",
+  "key": "586c0ae5ec5a58fb",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "370be2ebf47c9d27f586f6f9f7d0da7e36bfda8865b3f6eeea1c21683eb4bc19",
+  "chars": 10206,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101150534/https://leadstories.com/hoax-alert/2020/10/fact-check-breitbart-did-not-report-daughter-of-sen-coons-was-featured-on-hunters-laptop.html",
+  "key": "77cd94668b9be644",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "29c4382d1a042331b8a2ec8dff5f63a824851865491c1e4ed95c93c32d2cbbed",
+  "chars": 8307,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201101222911/https://www.usatoday.com/story/news/factcheck/2020/09/15/fact-check-rncs-first-night-viewership-not-high-posts-boast/5728110002/",
+  "key": "0d474287611016ba",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "8f0fcf25ae32a765c2c699eb5556e72957f9f495fd0ecfb26fefc53201f9220f",
+  "chars": 4276,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201102082415/https://dubawa.org/did-the-nigerian-government-ban-sachet-alcohol/",
+  "key": "0b8c320fa6c58f58",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "f4587000acccb105173f3cececc88760a94dabb11feecd1c08dca1f3e8771d14",
+  "chars": 6119,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201130144023/https://checkyourfact.com/2020/11/03/fact-check-sean-connery-letter-steve-jobs-apple-1998/",
+  "key": "258ffa720f62bfdc",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "3f9be5ea6df5022a5d27ec0412cfd0f4b2b3d384a986cd395f15bd2e44593ad3",
+  "chars": 2443,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201130194219/https://leadstories.com/hoax-alert/2020/10/fact-check-voting-machine-message-voters-received-did-not-prevent-them-from-voting.html",
+  "key": "c0cd7f0f642bb274",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "9fb9d2ae237d0088bf03d7edeafa43b065aba76a362379b1ddc52ecb7d2c7bcd",
+  "chars": 12282,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201130202624/https://leadstories.com/hoax-alert/2020/11/fact-check-claims-in-covid-19-genocide-of-2020-video-are-not-supported-by-facts.html",
+  "key": "cba845cd4240fc9e",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "139216d2305c8620966aa355266e3c4aa66e74099dd445ee7d7a1ff827877806",
+  "chars": 17024,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201201201601/https://fullfact.org/health/september-2020-test-trace/",
+  "key": "3554ba19c57cf934",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "af9fccc1d0c4a2d9854b947842587843feb1ad5d5348a90b3df91ffffec09dc1",
+  "chars": 5594,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201201202446/https://www.covid19facts.ca/en/fact-checked/achieving-natural-herd-immunity-against-covid-19-cannot-be-safely-or-easily-done",
+  "key": "b038461e41fb8e6d",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "df1e1635e8242c28dbe69e57212ecd4ef7d604bce6928e3db62dd35a32423c3b",
+  "chars": 16932,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20201227064709/https://leadstories.com/hoax-alert/2020/09/fact-check-the-trump-rnc-acceptance-speech-was-not-first-time-white-house-was-used-for-purely-political-campaign-event.html",
+  "key": "100836d8f6282feb",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "c3891efd8efc8085def25f56c221688fef911aa5479d12169fd25f3efe72af2c",
+  "chars": 8005,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210115084157/https://www.icirnigeria.org/viral-whatsapp-message-on-planned-demolition-of-37-estates-in-abuja-is-misleading/",
+  "key": "612e605aecaae462",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "2ee11ea52fbd1f3ffbdd368e575b04472b8db570c4c7233a4754b6abe7c7af3f",
+  "chars": 8741,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210118135713/https://africacheck.org/fact-checks/reports/donald-trumps-foreign-policy-fact-checking-us166-bn-china-africa-trade-claim",
+  "key": "83389a8458959901",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "5e2fd3e5fa2bb34279b30c00d460f6134ca926586cb7e214f6bc8f999198774f",
+  "chars": 12689,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210118231614/https://www.washingtonpost.com/politics/2020/10/09/pences-allegations-about-hillary-clinton-guide-perplexed/",
+  "key": "93551aed6db75285",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "b84e01190520ec5d2df6772981d1651954262292dad441e254f6dc5c962e2dca",
+  "chars": 12210,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210119203544/https://leadstories.com/hoax-alert/2020/09/fact-check-NFL-did-not-honor-an-organization-that-yelled-hope-they-die-outside-a-hospital-where-wounded-deputies-were-being-treated.html",
+  "key": "f1a36d533ee5ff81",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "3e2befb13ec1fe5daf43f07983b05b402380a415a3b63fe465abd80d29654109",
+  "chars": 7893,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210120091947/https://leadstories.com/hoax-alert/2020/10/fact-check-joe-biden-does-not-support-the-green-new-deal.html",
+  "key": "ea8dacdc8b7ff41b",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "050fd4cfb9bbbef59baf6a43943a72308983c2200738f9ada008b7f5f8f6f500",
+  "chars": 8260,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210123151451/https://factcheck.afp.com/australian-state-leader-misquoted-misleading-facebook-posts-which-shared-satirical-article-fact",
+  "key": "6118fbfc4498e579",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "f5a3ed8f70dc5f2d19bad2b0cd9cd3aad332cf2218a9e0e54c67bde27b443ad2",
+  "chars": 3807,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210126225708/https://www.indiatoday.in/fact-check/story/fact-check-sitting-in-pakistan-this-fake-china-expert-wants-to-shutdown-indian-sukhoi-1729040-2020-10-06",
+  "key": "4a10274330bd0504",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "5b5214040b8c21af7c36ab4c1fdc8f58eafe2bc84199b6e5cbb121b45772829d",
+  "chars": 9007,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210127061518/https://factcheck.afp.com/misleading-claim-circulates-world-bank-and-imf-were-established-former-dictator-ferdinand-marcos-and",
+  "key": "bf52b2dbd8bad9fc",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "b7d8cf85305777ec07c2b7f42ddcd6ab9c40a07ef299dbff6fbfec649881db1b",
+  "chars": 4604,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210127175751/https://www.usatoday.com/story/news/factcheck/2020/10/07/fact-check-california-has-fewer-polling-places-more-in-person-voting-time/3607312001/",
+  "key": "d61730340e9f4339",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "85417219614ed4d17f6956bddc07ad71170f274e6b54cd2b5350e91aa672a272",
+  "chars": 8761,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210127183852/https://www.boomlive.in/fake-news/fake-twitter-account-of-raj-thackeray-lends-support-to-kangana-ranaut-9628",
+  "key": "3dd34a0f65856bfe",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "56032518fd238559e1bf57936b3e5a16add38b710204ab8b93886f3517d09dd1",
+  "chars": 6345,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210129100929/https://zimfact.org/does-zimbabwe-get-more-than-half-afreximbank-loans/",
+  "key": "b791de352ee1c0d2",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "0f456d83953e7f3d7350e78eb823d8c4559df8e30cb156d88c03ff6e04726ee0",
+  "chars": 7349,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210203175758/https://www.politifact.com/factchecks/2020/sep/10/donald-trump/trumps-misleading-claim-about-unsolicited-mail-bal/",
+  "key": "489e73ff3d0a4a89",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "3de5d7d7bf24de23960e721675f3f9a7c5b494b2dfc7dd86935fac0ca3886fd2",
+  "chars": 17117,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210212042422/https://dubawa.org/some-people-believe-sleeping-under-insecticide-treated-bed-net-is-harmful-but-how-true-is-this/",
+  "key": "c26ec6ca8bd690af",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "c2eb07483c033ce9a0357a11dae54d58a1a7bea019ea937fa9b5b3165f998d8b",
+  "chars": 20232,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210224035354/https://www.politifact.com/factchecks/2020/oct/07/facebook-posts/yes-wisconsin-legislators-havent-passed-bill-6-mon/",
+  "key": "67f9a3fc410e38c8",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "39d977daae88e0c0a7328b37c69251901188d0f7fb785e595a712e550fa62f3b",
+  "chars": 13899,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210225110220/https://www.vishvasnews.com/english/viral/fact-check-unesco-did-not-declare-nadar-community-as-ancient-race-in-the-world-viral-claim-is-fake/",
+  "key": "59cfb977d21344ca",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "a56c26b410e7c01737c2159a8f909024e887eb019d7f589dd5891b3b053848df",
+  "chars": 5513,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210226192757/https://www.altnews.in/aaj-tak-falselt-claims-congress-candidate-maskoor-usmani-hung-jinnahs-portrait-at-amu/",
+  "key": "e99bd16dc27ab14b",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "8e1024e817aaa2045a481a1a6a6ac7be829207e123e1e00af9dd9aaa641bd3ae",
+  "chars": 9201,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210227072421/https://www.thegazette.com/factchecker/fact-checker-rita-harts-mask-claim-falls-short-20201026",
+  "key": "34b34296fb5fa490",
+  "status": 200,
+  "content_type": "text/html; charset=iso-8859-1",
+  "sha256": "7a78e63e30747d2a67c62a85e40de8fee42d9c7d28e570828541b827b5217246",
+  "chars": 10415,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210227073357/https://www.politifact.com/article/2020/aug/28/fact-checking-donald-trumps-2020-rnc-speech/",
+  "key": "327a6db138d08e7b",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "3aea1356be7d2aa89e1a92f2789752c3cc2b512d9d0636888e1da77536916a3a",
+  "chars": 25263,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210228033931/https://fullfact.org/online/santander-card-scam/",
+  "key": "1858561fc592da6f",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "8a739328719d52b8df42027a641b4846b2e5365fef4b1905ce3881985de78869",
+  "chars": 4971,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210228061809/https://checkyourfact.com/2020/09/29/fact-check-ruth-bader-ginsburg-pedophilia-good-children/",
+  "key": "876d4e90276ea05c",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "db4436671ffda78d939d9ddbd508cb050cf60685ca227adbf9cdb34f49d32d60",
+  "chars": 2842,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210301032120/https://www.politifact.com/factchecks/2020/oct/30/joe-biden/does-donald-trump-think-15-hour-too-much-essential/",
+  "key": "9f49801bb0f1cebb",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "6ddbe9b806d387096040340447185ad9a7cc24c01f56fef3e1935285f0d8f3ea",
+  "chars": 14164,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210301041755/https://www.politifact.com/factchecks/2020/oct/23/ron-johnson/us-sen-ron-johnson-confuses-and-misses-claim-about/",
+  "key": "2a2fad5b188b5130",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "1d691c14145c8018002dd33a10516032e811245f1ae0e3dfb9a448dc4fba2331",
+  "chars": 14993,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210301171705/https://www.boomlive.in/world/posts-that-claim-fox-news-is-unavailable-in-canada-are-false-9764",
+  "key": "7280508415aad082",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "93fbc1da1964e03a0afdd92f7dab2bd257ba3f2230328ea68b07abb71999e7eb",
+  "chars": 5028,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210310020652/https://healthfeedback.org/claimreview/fewer-flu-cases-observed-in-the-start-of-this-years-flu-season-than-in-previous-years-but-donald-trump-jr-s-tweet-suggesting-data-manipulation-is-unsupported-and-cites-inaccurate-fi/",
+  "key": "0b8bbb34f84e5caf",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "c186d5716928280b1d262e4a06852ee5b9fa37a760f6b677b202c9760544ce18",
+  "chars": 14004,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210310031315/https://www.politifact.com/factchecks/2020/sep/30/debbie-mucarsel-powell/florida-congressional-race-carlos-gimenezs-salary-/",
+  "key": "159ef95d001c3c15",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "c7a851a18d8e460e2e0740d8ceb462d7c31f9c37afec8b6fb9ddce4185122cec",
+  "chars": 14746,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210407214102/https://www.usatoday.com/story/news/factcheck/2020/10/21/fact-check-biden-amassed-wealth-through-speaking-and-book-profits/5981003002/",
+  "key": "0ba37f06a83cbae5",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "edeb56543de9897b95c2fa081330bc29dcfaaf76cefc92b335a12d9a24fc4e45",
+  "chars": 7307,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210415103231/https://www.aap.com.au/new-zealands-new-food-bill-doesnt-ban-gardening/",
+  "key": "0d31c8e925df1660",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "11d861bb7722a24a7756798f48d9789dd2a9eba361f3d31cd7e29002cebada77",
+  "chars": 9976,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210415192738/https://www.bbc.co.uk/news/election-us-2020-54434575",
+  "key": "879eb2e5a9e6e8ba",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "2e11b644f84a9cfe776944f29ba3838dd16e303cd0e7b97292e2c882d60f7676",
+  "chars": 9558,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210423164239/https://www.politifact.com/article/2020/sep/03/trumps-bad-advice-going-polls-verify-if-your-mail-/",
+  "key": "7927dc36a68abc1e",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "5fbcee64d8150db0aa280248cc854186a898e54dcfbc0610326b46db962f002f",
+  "chars": 16429,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210531024601/https://dubawa.org/fact-checking-atikus-claims-on-2021-budget-proposal/",
+  "key": "483fdcc9b959587f",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "9ae15adeaa365416bd0d6e063898216c704b85cdb66ea45724d298bb4551adae",
+  "chars": 12026,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210603052233/https://newsmeter.in/fact-check-pakistani-educational-website-hacked-by-indian-cyber-troops-to-wish-pk-on-his-birthday/",
+  "key": "a1c7297867e33ca3",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "47ed246da2766cc8d3b0576c7237933477439a655a41773580e30e71a1dd1dae",
+  "chars": 5237,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210604000303/https://factcheck.thedispatch.com/p/has-joe-biden-failed-to-condemn-violent",
+  "key": "2059d0dd9898ca97",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "2d20f05f0cd918202919e73021233dc37ecb52f9fa1da9496c3e9a42a5adf07c",
+  "chars": 4082,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210612002917/https://www.indiatoday.in/fact-check/story/fact-check-the-curious-case-of-a-desecrated-kali-idol-in-a-bengal-temple-1718010-2020-09-03",
+  "key": "7374014cb40bac02",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "3bafc5aaf5dd1c4308423969b0607725e2b27781ea01f0b56eb02fd271eb1fb3",
+  "chars": 5577,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210615011651/https://www.altnews.in/indian-army-never-had-a-muslim-regiment-false-claim-of-desertion-by-it-in-1965-india-pak-war-goes-viral/",
+  "key": "c3311752b00561e1",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "e65ddb28c6dc919e7eefe9dbd60a3cdc90468fed9e9e3ea2ab0e46bcedb80ffa",
+  "chars": 7736,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210708085205/https://www.altnews.in/tanishq-gandhidham-store-wasnt-attacked-staff-threatened-to-put-an-apology/",
+  "key": "05650099f4494c10",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "8d12a3b46f47f8d5385130b737c958ecad79d8f95c72a129de91ef8ca7baae6c",
+  "chars": 9405,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210716152415/https://www.indiatoday.in/fact-check/story/fact-check-shaktimaan-struggles-with-his-fake-avatars-on-social-media-1722179-2020-09-15",
+  "key": "55f5b20dfe79f1ad",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "f5f7fc739c01d041561ed5abe4aed72d85ebbb3b3e613a295139dbeaf8c6ce45",
+  "chars": 7065,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210717101422/https://dubawa.org/spraying-of-naira-notes-is-an-offence-punishable-by-imprisonment-in-nigeria/",
+  "key": "e69c28c7600b17f4",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "7ed296bc19d7096427ce6fc36ee4128c2a128230b320f127a8848df90dcd04a6",
+  "chars": 8613,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210719192533/https://newsmobile.in/articles/2020/09/07/fact-check-fake-tweet-of-mns-chief-raj-thackeray-supporting-kangana-ranaut-goes-viral/",
+  "key": "19cc03c5f68968c2",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "dc21fb330208916750744776f0d7c06b1e145b20fc61b1f69c19059fe908d51f",
+  "chars": 5251,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210719224005/https://www.boomlive.in/fake-news/forced-to-vote-for-the-shiv-sena-kangana-ranauts-claim-is-false-9805",
+  "key": "603552aaf5fde9eb",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "1a9a440295825a42d0bdac341cab69381a4cff315a2aa47a343c7619f90a6834",
+  "chars": 7589,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210720091240/https://newsmobile.in/articles/2020/09/07/fact-check-indian-railways-is-not-being-fully-privatized-heres-the-truth/",
+  "key": "758908665a66e65a",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "d64a584c43fb8b4294a18615b0e9cabc5cffebcfffb6c954090a1d99d92e6b1e",
+  "chars": 5601,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210720223641/https://www.politifact.com/factchecks/2020/sep/28/joe-biden/amy-coney-barrett-supreme-court-and-affordable-car/",
+  "key": "5db3448dacf3e052",
+  "status": 200,
+  "content_type": "text/html; charset=utf-8",
+  "sha256": "a86429cfa00f66bcee83f4ba7cf48e42e9ff33f29cc92d692bd1c3a6e3ac0986",
+  "chars": 13809,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210721094220/https://leadstories.com/hoax-alert/2020/10/fact-check-biden-was-not-endorsed-by-blm-or-antifa.html",
+  "key": "9a57028996d62fa5",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "52eb645f4d788dafb5b8df0f907ee76cd6e9ddb66604c379c34d30a727f3ab87",
+  "chars": 8567,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210722092935/https://leadstories.com/hoax-alert/2020/10/fact-check-a-congressman-did-not-just-introduce-a-bill-to-remove-pelosi.html",
+  "key": "f44f78a90a5b9866",
+  "status": 200,
+  "content_type": "text/html",
+  "sha256": "dd71627ea2b96411abddac037ad0e61ade2eaf390ce7a82c52be573170041bc9",
+  "chars": 8240,
+  "fetched": "2026-11-15"
+ },
+ {
+  "url": "https://web.archive.org/web/20210722140932/https://newsmobile.in/articles/2020/10/06/fact-check-no-the-govt-is-not-providing-free-android-smartphones-to-students/",
+  "key": "169ae56846fdae25",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "sha256": "7b3fdd7ae3ffa0fdd3ab5cf2f022545a2d5ae9485b4be44881404851be4c3ca3",
+  "chars": 7012,
+  "fetched": "2026-11-15"
+ }
+]
