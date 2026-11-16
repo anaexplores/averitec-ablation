@@ -1,4 +1,4 @@
-"""Build the project cover image (project_cover.png) and 16:9 slide deck (slides_submission.pdf).
+"""Build the 16:9 slide deck (slides_submission.pdf) and its dark figure.
 
 All numbers are taken verbatim from results_paper_numbers.txt and results_score_test_main.txt.
 
@@ -11,10 +11,9 @@ import sys
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch
+from cover_layout import render_cover
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-COVER_PNG = os.path.join(ROOT, "docs", "figures", "project_cover.png")
 FIG1_DARK_PNG = os.path.join(ROOT, "docs", "figures", "fig1_dark_slide.png")
 SLIDES_HTML = os.path.join(ROOT, "docs", "slides.html")
 SLIDES_PDF = os.path.join(ROOT, "slides_submission.pdf")
@@ -24,113 +23,8 @@ PROFILE = os.path.join(os.environ.get("TEMP", r"C:\Windows\Temp"),
 
 
 def build_cover_png():
-    """Render a 2400x1350 (16:9) publication-grade visual summary card."""
-    fig = plt.figure(figsize=(16, 9), dpi=150, facecolor="#0f172a")
-    ax_bg = fig.add_axes([0, 0, 1, 1], facecolor="#0f172a")
-    ax_bg.set_xlim(0, 100)
-    ax_bg.set_ylim(0, 100)
-    ax_bg.axis("off")
-
-    # Top header banner
-    ax_bg.text(4, 93.5, "APART RESEARCH  ·  AI x EPISTEMICS SPRINT 2026  ·  TRACK 1: MODEL EPISTEMICS & DECISION-MAKING EVALS",
-               color="#38bdf8", fontsize=10.5, fontweight="bold", family="sans-serif")
-    ax_bg.text(4, 87.2, "Caveats In, Verdicts Unchanged",
-               color="#f8fafc", fontsize=25, fontweight="bold", family="sans-serif")
-    ax_bg.text(4, 82.3, "A Pre-Declared Retrieval-Context Ablation of LLM Fact-Check Judges on AVeriTeC  (n = 196 claims · 4 judge families · 2,352 verdicts)",
-               color="#cbd5e1", fontsize=13, family="sans-serif")
-
-    # Left card background
-    left_box = FancyBboxPatch((4, 15), 43.5, 62, boxstyle="round,pad=0.8,rounding_size=1.5",
-                              facecolor="#1e293b", edgecolor="#334155", linewidth=1.5)
-    ax_bg.add_patch(left_box)
-    ax_bg.text(6.2, 72.5, "OBSERVATION 1  ·  RETRIEVAL ABLATION IS NULL",
-               color="#94a3b8", fontsize=10, fontweight="bold")
-    ax_bg.text(6.2, 67.8, "Adding caveat windows does not move verdicts",
-               color="#f8fafc", fontsize=15.5, fontweight="bold")
-    ax_bg.text(6.2, 63.5, "All 12 paired McNemar tests: Holm-adjusted p = 1.0000  (MDE = 3.6 pp)",
-               color="#38bdf8", fontsize=11, fontweight="bold")
-
-    # Left panel subplot: grouped accuracy bars across A, B, C per judge
-    ax_l = fig.add_axes([0.085, 0.255, 0.365, 0.33], facecolor="#1e293b")
-    judges = ["Claude Haiku 5.5", "DeepSeek V4 Pro", "Gemini 4 Argon", "GPT-6 Luna"]
-    acc_A = [74.0, 76.0, 74.5, 74.0]
-    acc_B = [74.5, 74.5, 76.5, 75.0]
-    acc_C = [73.0, 76.5, 76.0, 74.5]
-    x = range(len(judges))
-    w = 0.27
-    bA = ax_l.bar([i - w for i in x], acc_A, w, label="A: Support only (5x120w)", color="#60a5fa")
-    bB = ax_l.bar([i for i in x], acc_B, w, label="B: + Same-article caveats (5x40w)", color="#34d399")
-    bC = ax_l.bar([i + w for i in x], acc_C, w, label="C: + Foreign caveats (control)", color="#f59e0b")
-    ax_l.axhline(57.7, color="#f87171", linestyle="--", linewidth=1.3, label="Majority baseline (Refuted: 57.7%)")
-    for idx_b, bars in enumerate((bA, bB, bC)):
-        for b in bars:
-            dy = 1.4 if idx_b == 1 else 0.5
-            ax_l.annotate(f"{b.get_height():.1f}%",
-                          (b.get_x() + b.get_width() / 2, b.get_height() + dy),
-                          ha="center", va="bottom", color="#e2e8f0", fontsize=7.6, fontweight="bold")
-    ax_l.set_ylim(45, 87)
-    ax_l.set_xticks(list(x))
-    ax_l.set_xticklabels(judges, color="#e2e8f0", fontsize=9.5, fontweight="bold")
-    ax_l.set_ylabel("Exact-match accuracy (%)", color="#cbd5e1", fontsize=9.5)
-    ax_l.tick_params(axis="y", colors="#94a3b8", labelsize=8.5)
-    ax_l.spines[["top", "right"]].set_visible(False)
-    ax_l.spines["left"].set_color("#475569")
-    ax_l.spines["bottom"].set_color("#475569")
-    ax_l.legend(loc="lower right", fontsize=8, facecolor="#0f172a", edgecolor="#334155", labelcolor="#e2e8f0")
-
-    ax_bg.text(6.2, 18.2, "Verdicts flip on 7.7%–10.2% of claims across A/B/C  ·  Two judges in same condition disagree on 9.9%–12.7%",
-               color="#cbd5e1", fontsize=8.9)
-
-    # Right card background
-    right_box = FancyBboxPatch((51.5, 15), 44.5, 62, boxstyle="round,pad=0.8,rounding_size=1.5",
-                               facecolor="#1e293b", edgecolor="#334155", linewidth=1.5)
-    ax_bg.add_patch(right_box)
-    ax_bg.text(53.7, 72.5, "OBSERVATION 2  ·  THE REAL FAILURE MODE",
-               color="#fca5a5", fontsize=10, fontweight="bold")
-    ax_bg.text(53.7, 67.8, "Judges almost never abstain (1 / 216 correct)",
-               color="#f8fafc", fontsize=15.5, fontweight="bold")
-    ax_bg.text(53.7, 63.5, "Not Enough Evidence: 9.2% true share  →  issued in 2.3% of verdicts (0.5% accuracy)",
-               color="#f87171", fontsize=11, fontweight="bold")
-
-    # Right panel subplot: Gold share vs Issued share + per-label accuracy badges
-    ax_r = fig.add_axes([0.56, 0.255, 0.37, 0.33], facecolor="#1e293b")
-    cats = ["Supported\n(acc: 66.2%)", "Refuted\n(acc: 94.4%)", "Not Enough\nEvidence\n(acc: 0.5%)", "Conflicting /\nCherrypicking\n(acc: 43.6%)"]
-    gold_sh = [26.5, 57.7, 9.2, 6.6]
-    pred_sh = [19.0, 68.5, 2.3, 10.1]
-    xr = range(len(cats))
-    w2 = 0.35
-    bg1 = ax_r.bar([i - w2 / 2 for i in xr], gold_sh, w2, label="AVeriTeC gold label share (n = 196)", color="#3b82f6")
-    bg2 = ax_r.bar([i + w2 / 2 for i in xr], pred_sh, w2, label="Issued verdict share (2,352 verdicts)", color="#f97316")
-    for bars in (bg1, bg2):
-        for b in bars:
-            ax_r.annotate(f"{b.get_height():.1f}%",
-                          (b.get_x() + b.get_width() / 2, b.get_height() + 1.0),
-                          ha="center", va="bottom", color="#f8fafc", fontsize=8.8, fontweight="bold")
-    ax_r.set_ylim(0, 79)
-    ax_r.set_xticks(list(xr))
-    ax_r.set_xticklabels(cats, color="#e2e8f0", fontsize=8.8, fontweight="bold")
-    ax_r.set_ylabel("Share (%)", color="#cbd5e1", fontsize=9.5)
-    ax_r.tick_params(axis="y", colors="#94a3b8", labelsize=8.5)
-    ax_r.spines[["top", "right"]].set_visible(False)
-    ax_r.spines["left"].set_color("#475569")
-    ax_r.spines["bottom"].set_color("#475569")
-    ax_r.legend(loc="upper right", fontsize=8.2, facecolor="#0f172a", edgecolor="#334155", labelcolor="#e2e8f0")
-
-    ax_bg.text(53.7, 18.2, "Of 215 misses on NEE claims, 176 land on Refuted & 31 on Conflicting  ·  Exact-match rewards guessing",
-               color="#cbd5e1", fontsize=8.9)
-
-    # Bottom verification strip
-    bot_box = FancyBboxPatch((4, 3.5), 92, 8.2, boxstyle="round,pad=0.5,rounding_size=1.0",
-                             facecolor="#0f172a", edgecolor="#38bdf8", linewidth=1.2)
-    ax_bg.add_patch(bot_box)
-    ax_bg.text(50, 7.6,
-               "MACHINE-AUDITED CLEANLINESS (13 GATES, 0 FAIL, 14/14 SELFTEST RED)   ·   120 Isolated Judge Sessions   ·   588 Blind Labels Verified   ·   2,297 / 2,352 Verbatim Quotes (0 Contamination)",
-               ha="center", va="center", color="#f8fafc", fontsize=10.5, fontweight="bold")
-
-    os.makedirs(os.path.dirname(COVER_PNG), exist_ok=True)
-    fig.savefig(COVER_PNG, dpi=150)
-    plt.close(fig)
-    print("wrote", os.path.relpath(COVER_PNG, ROOT), f"({os.path.getsize(COVER_PNG)} bytes)")
+    """Render the project cover PNG via cover_layout.render_cover()."""
+    render_cover()
 
 
 SLIDES_CSS = """
@@ -235,7 +129,7 @@ def build_slides_html():
   </div>
   <div class="footer">
     <span>Repository: https://github.com/anaexplores/averitec-ablation</span>
-    <span>Slide 1 / 6</span>
+    <span>Slide 1 / 7</span>
   </div>
 </div>
 
@@ -268,7 +162,7 @@ def build_slides_html():
   </div>
   <div class="footer">
     <span>Caveats In, Verdicts Unchanged · Methods &amp; Isolation</span>
-    <span>Slide 2 / 6</span>
+    <span>Slide 2 / 7</span>
   </div>
 </div>
 
@@ -310,7 +204,7 @@ def build_slides_html():
   </div>
   <div class="footer">
     <span>Caveats In, Verdicts Unchanged · Ablation Results</span>
-    <span>Slide 3 / 6</span>
+    <span>Slide 3 / 7</span>
   </div>
 </div>
 
@@ -329,9 +223,19 @@ def build_slides_html():
           <tr><td><strong>Not Enough Evidence</strong></td><td>18/196 = 9.2%</td><td>55/2352 = 2.3%</td><td><strong style="color:#f87171;">1/216 = 0.5%</strong></td></tr>
           <tr><td><strong>Conflicting / Cherrypicking</strong></td><td>13/196 = 6.6%</td><td>238/2352 = 10.1%</td><td>68/156 = 43.6%</td></tr>
         </table>
+        <div class="card card-warn" style="margin-top:3mm;">
+          <h3>NEE Issued by Judge &amp; Condition (verified in results_paper_numbers.txt: 55/2352 = 2.3%)</h3>
+          <table>
+            <tr><th>Judge</th><th>Issued NEE in A</th><th>Issued NEE in B</th><th>Issued NEE in C</th><th>Correct NEE</th></tr>
+            <tr><td><code>claude-haiku-5-5</code></td><td>4</td><td>4</td><td>4</td><td><strong style="color:#f87171;">0</strong></td></tr>
+            <tr><td><code>deepseek-v4-pro</code></td><td>2</td><td>3</td><td>4</td><td><strong style="color:#f87171;">0</strong></td></tr>
+            <tr><td><code>gemini-4-argon</code></td><td>4</td><td>3</td><td>5</td><td><strong style="color:#34d399;">1</strong></td></tr>
+            <tr><td><code>gpt-6-luna</code></td><td>7</td><td>8</td><td>7</td><td><strong style="color:#f87171;">0</strong></td></tr>
+          </table>
+          <p style="font-size:9pt; margin-top:1.8mm;">Each row is 18 unique true NEE claims out of 196 test-side claims. All four judges under-issue abstention even though the excerpts literally state 'there is not enough evidence'. Only Gemini (condition C) produced exactly 1 correct NEE out of 216 pooled attempts.</p>
+        </div>
         <ul style="margin-top:2.2mm;">
-          <li><strong>18 unique NEE claims × 12 runs = 216 attempts:</strong> 1 correct, 176 placed into <em>Refuted</em>, 31 into <em>Conflicting/Cherrypicking</em>.</li>
-          <li><strong>Opposite movement of the two rare labels:</strong> Judges under-issue <em>Not Enough Evidence</em> (2.3% vs. 9.2%) but over-issue <em>Conflicting</em> (10.1% vs. 6.6%), qualifying the 2024 shared-task observation that prompted LLMs overpredict rare classes.</li>
+          <li><strong>Two rare labels move in opposite directions:</strong> Judges under-issue <em>Not Enough Evidence</em> (2.3% vs. 9.2%) but over-issue <em>Conflicting</em> (10.1% vs. 6.6%), qualifying the 2024 shared-task observation that prompted LLMs overpredict rare classes.</li>
           <li><strong>Headline accuracy (73.0%–76.5%)</strong> sits 15–19 points above the 57.7% baseline almost entirely through <em>Refuted</em> (94.4%).</li>
         </ul>
       </div>
@@ -342,7 +246,7 @@ def build_slides_html():
   </div>
   <div class="footer">
     <span>Caveats In, Verdicts Unchanged · Abstention Failure</span>
-    <span>Slide 4 / 6</span>
+    <span>Slide 4 / 7</span>
   </div>
 </div>
 
@@ -373,7 +277,7 @@ def build_slides_html():
   </div>
   <div class="footer">
     <span>Caveats In, Verdicts Unchanged · Mechanism &amp; Gates</span>
-    <span>Slide 5 / 6</span>
+    <span>Slide 5 / 7</span>
   </div>
 </div>
 
@@ -421,7 +325,48 @@ def build_slides_html():
   </div>
   <div class="footer">
     <span>Caveats In, Verdicts Unchanged · Conclusion &amp; Next Steps</span>
-    <span>Slide 6 / 6</span>
+    <span>Slide 6 / 7</span>
+  </div>
+</div>
+
+<!-- SLIDE 7 -->
+<div class="slide">
+  <div>
+    <div class="top-tag">6 · Reproducibility Artefacts</div>
+    <h2>Reproducibility Artefacts: Every Claim in This Deck Regenerates from Data</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Public Code and Prompts</h3>
+        <table>
+          <tr><th>Path in Repository</th><th>What It Contains</th></tr>
+          <tr><td><code>pipeline/</code></td><td>Fetcher, 3-condition ablation runner, collector, Wilson / McNemar / Holm scorer, 13-machine-gate harness</td></tr>
+          <tr><td><code>data/judge_prompts/</code></td><td>37 files · A, B, C and 3 manifest batches in every condition</td></tr>
+          <tr><td><code>data/judge_outputs_ablation/</code></td><td>133 files · all 120 judge-cell JSON outputs plus 12 collected JSONL files</td></tr>
+          <tr><td><code>data/session_ledger.jsonl</code></td><td>120 rows · each (judge, condition, batch) mapped to a unique session ID recovered from the OpenCode session store</td></tr>
+          <tr><td><code>docs/05_METHODS_AND_DATA_PROTOCOL.md</code></td><td>Written protocol and pre-registered statistical plan</td></tr>
+          <tr><td><code>docs/GATES.md</code></td><td>13-gate register, audit totals (13 PASS, 0 FAIL), and an explicit non-coverage list</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h3>Results, Report and Links</h3>
+        <ul>
+          <li><strong>Repository root:</strong> <code>https://github.com/anaexplores/averitec-ablation</code></li>
+          <li><strong>Official-format report (7 pages):</strong> <code>paper_submission.pdf</code></li>
+          <li><strong>6-slide presentation deck (this deck):</strong> <code>slides_submission.pdf</code></li>
+          <li><strong>Cover artwork:</strong> <code>docs/figures/project_cover.png</code></li>
+          <li><strong>Derived numeric summary:</strong> <code>results_paper_numbers.txt</code></li>
+          <li><strong>Statistical outputs:</strong> <code>results_score_test_main.txt</code> and <code>results_score_test_deepseek_excl.txt</code> (sensitivity run, n = 176)</li>
+          <li><strong>Gate audit output:</strong> <code>results_gates_audit.txt</code></li>
+          <li><strong>Reference verification log:</strong> <code>data/references_provenance.json</code></li>
+          <li><strong>Preexisting retrieval:</strong> <code>https://github.com/anaexplores/lost-caveats</code> (v0.1.1, released before the sprint)</li>
+        </ul>
+        <p style="margin-top:2.5mm; font-size:9pt; color:#94a3b8;">Verify locally with <code>python pipeline/gates.py --check-links</code> and <code>python pipeline/make_paper_numbers.py</code>, which regenerates every figure and table from data and blocks fabrication.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <span>Caveats In, Verdicts Unchanged · Reproducibility Artefacts</span>
+    <span>Slide 7 / 7</span>
   </div>
 </div>
 
