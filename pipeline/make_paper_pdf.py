@@ -23,26 +23,35 @@ PROFILE = os.path.join(os.environ.get("TEMP", r"C:\Windows\Temp"),
                        "opencode", "edge-pdf-profile")
 
 CSS = """
-@page { size: A4; margin: 20mm 18mm 22mm 18mm; }
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
 html { -webkit-print-color-adjust: exact; }
-body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.5pt;
-       line-height: 1.42; color: #111; margin: 0; }
-.titleblock { text-align: center; margin-bottom: 9mm; }
-.titleblock h1 { font-size: 15.5pt; line-height: 1.3; margin: 0 0 4mm 0; }
-.titleblock p { margin: 1.2mm 0; font-size: 11pt; }
-blockquote { border-left: 2.5pt solid #999; margin: 3mm 6mm; padding: 1mm 0 1mm 4mm;
-             color: #333; font-size: 9.5pt; text-align: left; }
-h2 { font-size: 12pt; margin: 6mm 0 2mm 0; page-break-after: avoid; }
-h3 { font-size: 10.5pt; margin: 4.5mm 0 1.5mm 0; page-break-after: avoid; }
-p { margin: 0 0 2.2mm 0; text-align: justify; hyphens: auto; }
-ul, ol { margin: 0 0 2.5mm 0; padding-left: 6mm; }
-li { margin-bottom: 1.2mm; text-align: justify; hyphens: auto; }
-table { border-collapse: collapse; width: 100%; font-size: 8.7pt; margin: 2mm 0 3mm 0; }
+body { font-family: Georgia, 'Times New Roman', serif; font-size: 10.3pt;
+       line-height: 1.38; color: #111; margin: 0; }
+.titlebox { border-top: 2.5pt solid #111; border-bottom: 0.8pt solid #111;
+            padding: 5mm 4mm; margin: 0 0 5mm 0; text-align: center; }
+.titlebox h1 { font-size: 16pt; line-height: 1.28; margin: 0; font-weight: bold; }
+.titlebox h1 sup { font-size: 10pt; font-weight: normal; }
+.authorblock { text-align: center; margin: 4mm 0 5mm 0; font-size: 10.5pt; line-height: 1.35; }
+.authorblock .with { margin-top: 3mm; }
+.abstractblock { margin: 0 14mm 4mm 14mm; }
+.abstractblock h2 { text-align: center; font-size: 11.5pt; margin: 0 0 2.5mm 0; }
+.abstractblock p { font-style: italic; font-size: 10pt; line-height: 1.36;
+                   text-align: justify; margin: 0 0 2mm 0; }
+.sprint-footnote { border-top: 0.6pt solid #555; padding-top: 1.5mm; margin: 3mm 0 5mm 0;
+                   font-size: 8.8pt; color: #222; }
+h2 { font-size: 12pt; margin: 5mm 0 2mm 0; page-break-after: avoid; }
+h3 { font-size: 10.5pt; margin: 3.8mm 0 1.2mm 0; page-break-after: avoid; }
+p { margin: 0 0 2mm 0; text-align: justify; hyphens: auto; }
+ul, ol { margin: 0 0 2.2mm 0; padding-left: 6mm; }
+li { margin-bottom: 1mm; text-align: justify; hyphens: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 8.7pt; margin: 2mm 0 2.5mm 0; }
 th, td { border: 0.5pt solid #888; padding: 1.1mm 1.6mm; text-align: left; vertical-align: top; }
 th { background: #ececec; }
-img { max-width: 100%; }
+figure { margin: 2mm 0; text-align: center; }
+figcaption { display: none; }
+img { max-width: 95%; }
 a { color: #1a4e8a; text-decoration: none; }
-code { font-family: Consolas, 'Courier New', monospace; font-size: 9pt;
+code { font-family: Consolas, 'Courier New', monospace; font-size: 8.8pt;
        background: #f4f4f4; padding: 0 0.6mm; }
 """
 
@@ -59,13 +68,29 @@ def build_html():
         ["pandoc", DRAFT, "-f", "markdown", "-t", "html5", "--wrap=none"],
         capture_output=True, text=True, check=True,
     ).stdout
-    i = frag.find("<h2")
-    if i < 0:
-        raise SystemExit("no <h2> in pandoc output; layout assumptions broken")
-    head, body = frag[:i], frag[i:]
+    m_h1 = re.search(r"<h1[^>]*>(.*?)</h1>", frag, re.S)
+    m_abs = re.search(r"(<h2[^>]*>Abstract</h2>.*?)<h2", frag, re.S)
+    i_intro = frag.find("<h2 id=\"introduction\"")
+    if not (m_h1 and m_abs and i_intro > 0):
+        raise SystemExit("could not locate title/abstract/intro in pandoc output")
+    title_html = m_h1.group(1)
+    abs_html = m_abs.group(1)
+    rest_html = frag[i_intro:]
+    header_html = (
+        f"<div class='titlebox'><h1>{title_html}<sup>1</sup></h1></div>"
+        "<div class='authorblock'>"
+        "<div><strong>Ana</strong> (GitHub <code>anaexplores</code>)</div>"
+        "<div>Independent researcher</div>"
+        "<div class='with'><strong>With</strong><br>Apart Research</div>"
+        "</div>"
+        f"<div class='abstractblock'>{abs_html}</div>"
+        "<div class='sprint-footnote'><sup>1</sup> Research conducted at the "
+        "<a href='https://apartresearch.com/sprints/ai-x-epistemics-research-sprint-2026-11-13-to-2026-11-15'>"
+        "AI x Epistemics Research Sprint</a>, November 2026.</div>"
+    )
     html = ("<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>"
             "<title>Submission</title><style>" + CSS + "</style></head><body>"
-            "<div class='titleblock'>" + head + "</div>" + body + "</body></html>")
+            + header_html + rest_html + "</body></html>")
     with open(HTML, "w", encoding="utf-8") as f:
         f.write(html)
     print("wrote", os.path.relpath(HTML, ROOT))
