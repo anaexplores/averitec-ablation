@@ -23,6 +23,7 @@ import json
 import os
 import re
 import shutil
+import socket
 import sys
 import tempfile
 import unicodedata
@@ -176,10 +177,11 @@ def g1_protocol_freeze(root, reg, side):
             g.fail(f"deviation '{e['id']}' has no protocol_markers to verify")
             continue
         for pf, marker in markers.items():
-            if not os.path.exists(pf):
+            full_pf = pf if os.path.isabs(pf) else os.path.join(root, pf)
+            if not os.path.exists(full_pf):
                 g.fail(f"protocol file missing: {pf}")
                 continue
-            if marker not in read_text(pf):
+            if marker not in read_text(full_pf):
                 g.fail(f"deviation '{e['id']}' marker '{marker}' not found in {pf}")
         for pf in reg["protocol_files"]:
             if pf not in markers:
@@ -515,7 +517,15 @@ def g10_report_traceability(root, reg, side, check_links=False):
         p = os.path.join(root, rel)
         if os.path.exists(p):
             known += read_text(p)
-    nums = set(re.findall(r"\b\d{1,3}/\d{2,4}\b|\b\d{1,3}\.\d%\b", text))
+    # Facts cited from other papers (shared-task numbers, external counts) cannot be in
+    # our results files; the draft may cite them only if the reference-provenance record
+    # carries them, so that record joins the searchable corpus.
+    prov = os.path.join(root, "data", "references_provenance.json")
+    if os.path.exists(prov):
+        known += read_text(prov)
+    # NOTE: no trailing \b after % - '%' is a non-word character, so a word boundary
+    # never matches there and the whole percent alternative would silently match nothing.
+    nums = set(re.findall(r"\b\d{1,3}/\d{2,4}\b|\b\d{1,3}\.\d%", text))
     unknown = sorted(n for n in nums if n not in known)
     g.metrics["numbers_in_draft"] = len(nums)
     if unknown:
@@ -524,12 +534,43 @@ def g10_report_traceability(root, reg, side, check_links=False):
     g.metrics["links"] = len(links)
     if check_links:
         import urllib.request
+        import urllib.error
+        blocked = []
         for u in links:
+            if "doi.org/" in u:
+                # A HEAD request to doi.org is bot-blocked (403/406) even for live DOIs,
+                # so verify existence through the handle API instead of guessing.
+                doi = u.split("doi.org/", 1)[1].rstrip("/.")
+                api = f"https://doi.org/api/handles/{doi}"
+                try:
+                    with urllib.request.urlopen(api, timeout=20) as r:
+                        payload = json.loads(r.read().decode("utf-8", "replace"))
+                    if payload.get("responseCode") != 1:
+                        g.fail(f"DOI does not resolve (responseCode {payload.get('responseCode')}): {u}")
+                except Exception as e:
+                    blocked.append(f"{u} ({e})")
+                continue
             try:
-                req = urllib.request.Request(u, method="HEAD", headers={"User-Agent": "Mozilla/5.0"})
-                urllib.request.urlopen(req, timeout=15).read(0)
+                req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (research-report-link-check)"})
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    r.read(2048)
+            except urllib.error.HTTPError as e:
+                if e.code in (403, 406, 429, 451):
+                    blocked.append(f"{u} (HTTP {e.code}, bot-blocked)")
+                else:
+                    g.fail(f"link does not resolve: {u} (HTTP {e.code})")
+            except (TimeoutError, socket.timeout) as e:
+                blocked.append(f"{u} (timeout, not verified)")
+            except urllib.error.URLError as e:
+                if isinstance(getattr(e, "reason", None), (TimeoutError, socket.timeout)):
+                    blocked.append(f"{u} (timeout, not verified)")
+                else:
+                    g.fail(f"link does not resolve: {u} ({e})")
             except Exception as e:
                 g.fail(f"link does not resolve: {u} ({e})")
+        if blocked:
+            g.warn(f"{len(blocked)} link(s) could not be verified automatically, resolver blocked the check: "
+                   f"{blocked[:4]}")
     else:
         g.warn(f"{len(links)} link(s) not checked (pass --check-links); submission checklist requires working links")
     if g.status == PASS:
@@ -884,6 +925,8 @@ SELFTEST_CASES = [
                            lambda s: s.replace("judge-y A vs B:", "judge-y A vs Z:"))),
     ("G10", "a number in the draft appears in no results file",
      lambda t: _patch_text(t, "docs/PAPER_DRAFT.md", lambda s: s.replace("null result.", "null result, 199/196 correct."))),
+    ("G10", "a percentage in the draft appears in no results file",
+     lambda t: _patch_text(t, "docs/PAPER_DRAFT.md", lambda s: s.replace("null result.", "null result, 99.9% accurate."))),
     ("G11", "a stray label-bearing artefact beside the judge outputs",
      lambda t: _write(t, os.path.join("data", "judge_outputs_ablation", "test", "A", "labels_manifest.json"), "{}")),
     ("G12", "a quote lifted from another condition's excerpts",

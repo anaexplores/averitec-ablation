@@ -110,6 +110,11 @@ verdict.
    cell, the fallback is recorded in `data/run_registry.json` with the reason, the model
    actually used, and the sensitivity analysis it requires. One cell in this run:
    deepseek A/batch00, after three provider content-filter blocks.
+6. **Verified after the run.** `pipeline/backfill_ledger_sessions.py` matched all 120
+   cells to unique succeeded sessions in the OpenCode session store (125 sessions in
+   total; the 5 extras are the registered blocked attempts and retries). Identifiers are
+   recorded in the ledger with `attestation: opencode-session-store`, and the single
+   orchestrator session that spawned every judge session issued no verdicts itself.
 
 ### Blind mechanics
 
@@ -120,14 +125,15 @@ verdict.
   the labels used for scoring cannot be quietly edited after the run.
 - Scoring is the single place where labels and verdicts are joined.
 
-## 5. Statistics (declared before the run)
+## 5. Statistics (declared in writing before any scoring began)
 
 - Primary metric: exact-match accuracy of the 4-way verdict against the AVeriTeC label,
   per (judge, condition), with 95% Wilson intervals.
 - Paired test: exact McNemar on correct/incorrect pairs.
 - Declared family: {A vs B, B vs C} mandatory, {A vs C} optional. Holm correction inside
-  the family. The optional comparison was declared before any test-side run and is
-  reported, not selected after seeing the data.
+  the family. The optional comparison was declared in the same written plan, before
+  wave C ran and before any scoring began, and is reported, not selected after
+  seeing the data.
 - Per-label breakdown reported separately, never pooled across judges.
 - Minimum detectable effect: exact McNemar on n=196 paired claims needs at least 7 net
   discordant pairs to survive Holm across the two mandatory comparisons, about

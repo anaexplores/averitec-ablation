@@ -41,14 +41,16 @@ Report: `results_gates_audit.txt` / `.json`.
 | **G7** collection integrity | the collector rewrites the data | per (judge, condition): row count, uniqueness, claim_id set equal to the manifest, `side`/`condition`/`judge` fields correct, provenance marks present, and every verdict re-derived from the source array | one collected verdict changed |
 | **G8** exclusion ledger | post-hoc sample cherry-picking | in **every** condition, split minus batched equals exactly the declared exclusions; effective n as declared; dropped claims' labels reported | one extra claim dropped in condition B |
 | **G9** statistics conformance | undeclared tests, or a deviation without its sensitivity run | the scoring script really implements Wilson, exact McNemar and Holm; every declared comparison × every judge appears in the results file; Holm-adjusted p present; each deviation that requires a sensitivity run has a labelled sensitivity file | a declared comparison removed from the results file |
-| **G10** report traceability | a number in the paper that no run produced | abstract exists and is 150-250 words; mandatory `Limitations and Dual-Use` appendix present; `preexisting` and `new sprint work` both marked; every `k/n` and `x.y%` figure in the draft found in a results file; links listed (resolved with `--check-links`) | a fabricated `199/196` inserted into the draft |
+| **G10** report traceability | a number in the paper that no run produced | abstract exists and is 150-250 words; mandatory `Limitations and Dual-Use` appendix present; `preexisting` and `new sprint work` both marked; every `k/n` and `x.y%` figure in the draft found in a results file or in `data/references_provenance.json` (facts cited from other papers); links listed (resolved with `--check-links`) | a fabricated `199/196` inserted into the draft |
 | **G11** cell isolation | cells overwrite each other, or labels sit where judges write | exactly one file per cell, named `<judge>_batchNN.json`, in the right condition directory; no unexpected artefacts; nothing named `*manifest*` or `*label*` beside the outputs; no missing cell | a stray `labels_manifest.json` dropped into an output dir |
 | **G12** quote provenance | hallucinated quotes, or a session that saw another condition | every quote normalised (NFKD, quotes/dashes unified, casefolded, spaces collapsed) and searched in that item's own excerpts; a quote absent from its own condition but present in another condition's text for the same claim is **contamination and fails at any count**; global verbatim rate must clear the declared threshold; a judge below the per-judge threshold is a WARN that must be disclosed | a condition-A quote replaced with text that exists only in condition B |
 | **G13** session ledger | one session reused across cells, or an unattributable cell | one ledger row per cell with judge/condition/batch/model/output/isolation/attestation; `isolation` must be `fresh-session-single-batch`; no session_id used for two cells; for cells recorded after `required_from_utc` a missing session_id is a hard FAIL | one session_id copied onto a second cell |
 
 ## 2. Audit result on the completed run (2026-11-15)
 
-`results_gates_audit.txt`: **13 gates, 0 FAIL, 2 WARN, 11 PASS.**
+`results_gates_audit.txt`: **13 gates, 0 FAIL, 13 PASS (or 12 PASS / 1 WARN when an external resolver throttles automated checks).**
+
+Every gate that checks the data, prompts, outputs, statistics, session isolation, and report traceability passes with 0 FAIL.
 
 Numbers the gates established rather than assumed:
 
@@ -63,16 +65,23 @@ Numbers the gates established rather than assumed:
   contamination**, global rate 0.9766 (G12).
 - 12 declared comparisons present, Holm applied, sensitivity run present for the one
   deviation (G9).
+- 120 cells matched to 120 unique sessions recovered from the OpenCode session store; 5
+  further sessions are the registered retries and blocked attempts; no session reused
+  across cells (G13, after the backfill described below).
 
-The two WARNs are honest gaps, not passes:
+Both WARNs of the first audit are now resolved, in different ways:
 
-- **G13**: the 120 cells of the completed run pre-date ledger enforcement. The orchestrator
-  log was not retained as a machine artefact, so `session_id` is `null` and
-  `attestation: not-retained` rather than an invented identifier. Those cells are still
-  audited structurally (G11) and by quote provenance (G12), which is the check that would
-  actually catch a session seeing another condition's text. From
-  `ledger.required_from_utc` onward a missing session_id is a FAIL.
-- **G10**: the report draft does not exist yet. The gate re-runs when it does.
+- **G13** (was: session ids not retained). The identifiers were recovered after the run
+  from the OpenCode session store by `pipeline/backfill_ledger_sessions.py`: every cell
+  matched to exactly one succeeded session by title, model and output timing (60 s clock
+  tolerance), one-to-one enforced, fail-closed on any ambiguity. The ledger marks where
+  each identifier came from (`attestation: opencode-session-store`): they are retrieved,
+  not reconstructed. From `ledger.required_from_utc` onward a missing session_id is a
+  hard FAIL, so this was a one-time repair of a completed run, not a substitute for
+  capturing ids live.
+- **G10** (was: no draft yet). The draft exists; every numeric claim in it traces to a
+  results file or `data/references_provenance.json`, the abstract is within range, and
+  all 21 links resolve.
 
 One judge-level caveat surfaced by G12 and carried into the paper: per-judge verbatim
 quote rates are claude 0.995, gemini 0.998, gpt 0.992, **deepseek 0.922**. DeepSeek
@@ -97,10 +106,16 @@ without manual checking.
 - **Model identity is attested, not observed.** G5 checks the ledger against the declared
   panel. The ledger records what the orchestrator passed in the call. If a provider silently
   served something else behind one model id, no gate here would see it.
-- **Timestamps.** G1 compares recorded ISO strings. A back-dated registry entry would pass.
-  The git history is the only external check on ordering.
+- **Timestamps.** G1 compares recorded ISO strings, and the registry now cites git commits
+  and session-store records as evidence for its event times. That is an external check on
+  the ordering, but the strings themselves could still be mis-set; git history and the
+  session store remain the ground truth, and this audit does not re-derive them.
 - **The statistics being the right statistics.** G9 verifies the declared tests are the ones
   implemented and reported. Whether exact McNemar with Holm is the best choice for this
   design is a judgement, not a gate.
 - **Selection of what to report.** G10 ties every number in the draft to a results file. It
   cannot detect a true number omitted because it was inconvenient.
+- **External numbers.** Facts cited from other papers (the shared-task results, for
+  instance) cannot live in our results files; G10 accepts them only when the
+  reference-provenance record carries them, but it cannot re-verify those facts against
+  their sources at run time. The provenance file is the audit trail for them.

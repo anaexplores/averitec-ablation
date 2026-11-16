@@ -22,12 +22,18 @@ prompt template, identical claim; only the composition of the retrieved context 
 - [x] split file (grouped by `fact_checking_article`, stratified by label, seed 20261115;
       cross-file article overlap excluded from tuning, 0 shared articles between sides)
 - [x] unavailable-article exclusions pre-declared BEFORE any judge run
-      (data/unavailable_articles.json; JS-rendered Wayback captures with no static text)
+      (data/unavailable_articles.json: 6 tuning claims, 100 -> 94, and 4 test claims,
+      200 -> 196; misbar.com JS-rendered Wayback captures with no static text,
+      excluded from every condition equally)
 - [x] ablation runner (conditions A/B/C) + statistics (Wilson, exact McNemar, Holm)
-- [ ] tuning-pool article fetch: 350/371 ok, 21 unavailable (misbar.com JS captures)
-- [ ] test-side article fetch: running
-- [ ] sanity run (3 tuning claims, 1 judge), full test run A/B (4 judges), condition C
-- [ ] report
+- [x] full judge matrix: 4 judges x 3 conditions x 196 claims, one fresh isolated
+      session per (judge, condition, batch), 125 sessions verified in the OpenCode
+      session store; all 12 paired comparisons non-significant after Holm
+      (minimum detectable effect 3.6 percentage points)
+- [x] cleanliness gates: 13 machine-enforced gates + selftest, audit in
+      results_gates_audit.txt
+- [x] report: docs/PAPER_DRAFT.md and paper_submission.pdf; every number in the
+      report regenerates via pipeline/make_paper_numbers.py
 
 ## Data provenance
 

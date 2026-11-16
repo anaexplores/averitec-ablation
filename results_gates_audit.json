@@ -1,6 +1,6 @@
 {
  "side": "test",
- "generated_utc": "2026-11-15T17:16:25+00:00",
+ "generated_utc": "2026-11-16T05:56:31+00:00",
  "gates": [
   {
    "gate": "G1",
@@ -9,7 +9,7 @@
    "metrics": {
     "amendments": 2,
     "deviations": 1,
-    "first_test_run_utc": "2026-11-15T18:05:00+00:00"
+    "first_test_run_utc": "2026-11-15T16:13:20+00:00"
    },
    "details": [
     "2 amendment(s) all pre-date the first test run; 1 deviation(s) carry a marker present in every protocol file they declare"
@@ -163,26 +163,30 @@
   {
    "gate": "G13",
    "title": "Session ledger: one fresh isolated session per cell, recorded; enforced for cells after required_from",
-   "status": "WARN",
+   "status": "PASS",
    "metrics": {
     "cells": 120,
     "ledger_rows": 120,
-    "unique_sessions": 0,
+    "unique_sessions": 120,
     "reused_sessions": 0,
-    "session_id_not_retained": 120,
+    "session_id_not_retained": 0,
     "missing_entries": 0
    },
    "details": [
-    "WARN: 120 cell(s) pre-date ledger enforcement (2026-11-16T00:00:00+00:00); their session ids are marked not-retained rather than invented. Structural isolation (G11) and quote provenance (G12) still audit them."
+    "120 unique sessions for 120 cells, no session reused across cells"
    ]
   },
   {
    "gate": "G10",
    "title": "Report traceability: every number in the draft comes from a results file; required parts present",
-   "status": "WARN",
-   "metrics": {},
+   "status": "PASS",
+   "metrics": {
+    "abstract_words": 190,
+    "numbers_in_draft": 40,
+    "links": 21
+   },
    "details": [
-    "WARN: report draft not written yet (docs/PAPER_DRAFT.md); gate re-runs once it exists"
+    "abstract length, mandatory appendix, preexisting/new marking and every numeric claim verified against results files"
    ]
   }
  ]

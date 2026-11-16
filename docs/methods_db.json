@@ -1,0 +1,259 @@
+{
+  "metadata": {
+    "retrieved_date": "2026-11-15",
+    "description": "Methods knowledge base for the AI x Epistemics Research Sprint multi-dataset experiment: data preparation, train/dev/test splitting without leakage, and statistical testing for rigorous LLM-judge comparisons.",
+    "provenance_policy": "Every bibliographic entry was verified live on 2026-11-15 with HTTP 200 from api.crossref.org (exact DOI resolution returning matching title/authors/venue) or export.arxiv.org (arXiv API, title+authors+full abstract). No DOI or arXiv ID is guessed. A candidate DOI for McNemar (1947), 10.1007/BF02295985, resolved to a DIFFERENT paper (Brogden 1977, 'The Rasch Model, the Law of Comparative Judgment and Additive Conjoint Measurement', Psychometrika 42(4)) and was discarded; the correct DOI 10.1007/BF02295996 was located via Crossref bibliographic search. Journal/proceedings entries fetched via Crossref carry bibliographic metadata only (abstract: null with note), because Crossref does not return abstracts for these records; nothing was paraphrased from memory.",
+    "counts": {
+      "methodological_sources": 10,
+      "crossref_verified": 6,
+      "arxiv_verified": 4,
+      "dataset_pointers_reused_from_sources_content_db": 5
+    }
+  },
+  "methodological_sources": [
+    {
+      "id": "M01",
+      "category": "statistical_testing",
+      "title": "Note on the Sampling Error of the Difference Between Correlated Proportions or Percentages",
+      "authors": ["Quinn McNemar"],
+      "venue": "Psychometrika",
+      "year": 1947,
+      "volume": "12",
+      "issue": "2",
+      "pages": "153-157",
+      "fetch_status": "fetched_primary",
+      "fetched_from": "api.crossref.org",
+      "doi": "10.1007/BF02295996",
+      "abstract": null,
+      "abstract_note": "Crossref metadata record only (no abstract field for 1947 record); do not paraphrase from memory.",
+      "sprint_relevance": "The original test for paired binary outcomes: the exact test to use when the same cases are run under two conditions (e.g. support-only vs support+caveat retrieval) judged by the same judge."
+    },
+    {
+      "id": "M02",
+      "category": "statistical_testing",
+      "title": "Approximate Statistical Tests for Comparing Supervised Classification Learning Algorithms",
+      "authors": ["Thomas G. Dietterich"],
+      "venue": "Neural Computation",
+      "year": 1998,
+      "volume": "10",
+      "issue": "7",
+      "pages": "1895-1923",
+      "fetch_status": "fetched_primary",
+      "fetched_from": "api.crossref.org",
+      "doi": "10.1162/089976698300017197",
+      "abstract": null,
+      "abstract_note": "Crossref metadata record only.",
+      "sprint_relevance": "Canonical analysis of which statistical test is valid when comparing two systems on the same test set; justification for paired-per-case designs and caution about repeated test-set reuse."
+    },
+    {
+      "id": "M03",
+      "category": "statistical_testing",
+      "title": "Interval Estimation for a Binomial Proportion",
+      "authors": ["Lawrence D. Brown", "T. Tony Cai", "Anirban DasGupta"],
+      "venue": "Statistical Science",
+      "year": 2001,
+      "volume": "16",
+      "issue": "2",
+      "pages": "101-133",
+      "fetch_status": "fetched_primary",
+      "fetched_from": "api.crossref.org",
+      "doi": "10.1214/ss/1009213286",
+      "abstract": null,
+      "abstract_note": "Crossref metadata record only.",
+      "sprint_relevance": "Establishes that the Wald interval behaves poorly at small n and recommends Wilson-type (or Jeffreys) intervals, the basis for reporting 95% Wilson intervals on small case counts."
+    },
+    {
+      "id": "M04",
+      "category": "statistical_testing",
+      "title": "The Hitchhiker's Guide to Testing Statistical Significance in Natural Language Processing",
+      "authors": ["Rotem Dror", "Gili Baumer", "Segev Shlomov", "Roi Reichart"],
+      "venue": "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+      "year": 2018,
+      "pages": "1383-1392",
+      "fetch_status": "fetched_primary",
+      "fetched_from": "api.crossref.org",
+      "doi": "10.18653/v1/P18-1128",
+      "abstract": null,
+      "abstract_note": "Crossref metadata record only.",
+      "sprint_relevance": "Practical NLP guide: choose tests by experimental design (paired tests when both systems run on the same items), handle multiple comparisons, and state what the unit of analysis is."
+    },
+    {
+      "id": "M05",
+      "category": "splitting",
+      "title": "We Need to Talk about Standard Splits",
+      "authors": ["Kyle Gorman", "Steven Bedrick"],
+      "venue": "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+      "year": 2019,
+      "pages": "2786-2791",
+      "fetch_status": "fetched_primary",
+      "fetched_from": "api.crossref.org",
+      "doi": "10.18653/v1/P19-1267",
+      "abstract": null,
+      "abstract_note": "Crossref metadata record only.",
+      "sprint_relevance": "Argument that single canonical splits make results fragile and split choice should be defended; motivates recording split procedure, seed and group keys in the report."
+    },
+    {
+      "id": "M06",
+      "category": "splitting",
+      "title": "Leakage and the reproducibility crisis in machine-learning-based science",
+      "authors": ["Sayash Kapoor", "Arvind Narayanan"],
+      "venue": "Patterns",
+      "year": 2023,
+      "volume": "4",
+      "issue": "9",
+      "page": "100804",
+      "fetch_status": "fetched_primary",
+      "fetched_from": "api.crossref.org",
+      "doi": "10.1016/j.patter.2023.100804",
+      "abstract": null,
+      "abstract_note": "Crossref metadata record only.",
+      "sprint_relevance": "Taxonomy of leakage types (including non-independence between train/dev and test units and temporal leakage); checklist source for the split rules below."
+    },
+    {
+      "id": "M07",
+      "category": "experimental_practice",
+      "title": "Troubling Trends in Machine Learning Scholarship",
+      "authors": ["Zachary C. Lipton", "Jacob Steinhardt"],
+      "venue": "arXiv / Communications of the ACM (2020)",
+      "year": 2018,
+      "fetch_status": "fetched_primary",
+      "fetched_from": "export.arxiv.org",
+      "arxiv_id": "1807.03341v2",
+      "arxiv_published": "2018-07-09",
+      "abstract": "Collectively, machine learning (ML) researchers are engaged in the creation and dissemination of knowledge about data-driven algorithms. In a given paper, researchers might aspire to any subset of the following goals, among others: to theoretically characterize what is learnable, to obtain understanding through empirically rigorous experiments, or to build a working system that has high predictive accuracy. While determining which knowledge warrants inquiry may be subjective, once the topic is fixed, papers are most valuable to the community when they act in service of the reader, creating foundational knowledge and communicating as clearly as possible. Recent progress in machine learning comes despite frequent departures from these ideals. In this paper, we focus on the following four patterns that appear to us to be trending in ML scholarship: (i) failure to distinguish between explanation and speculation; (ii) failure to identify the sources of empirical gains, e.g., emphasizing unnecessary modifications to neural architectures when gains actually stem from hyper-parameter tuning; (iii) mathiness: the use of mathematics that obfuscates or impresses rather than clarifies, e.g., by confusing technical and non-technical concepts; and (iv) misuse of language, e.g., by choosing terms of art with colloquial connotations or by overloading established technical terms. While the causes behind these patterns are uncertain, possibilities include the rapid expansion of the community, the consequent thinness of the reviewer pool, and the often-misaligned incentives between scholarship and short-term measures of success (e.g., bibliometrics, attention, and entrepreneurial opportunity). While each pattern offers a corresponding remedy (don't do it), we also discuss some speculative suggestions for how the community might combat these trends.",
+      "sprint_relevance": "Motivates pre-stating hypotheses and analysis before running, and cleanly attributing where gains come from (ablation logic)."
+    },
+    {
+      "id": "M08",
+      "category": "experimental_practice",
+      "title": "Accounting for Variance in Machine Learning Benchmarks",
+      "authors": ["Xavier Bouthillier", "Pierre Delaunay", "Mirko Bronzi", "Assya Trofimov", "Brennan Nichyporuk", "Justin Szeto", "Naz Sepah", "Edward Raff", "Kanika Madan", "Vikram Voleti", "Samira Ebrahimi Kahou", "Vincent Michalski", "Dmitriy Serdyuk", "Tal Arbel", "Chris Pal", "Gaël Varoquaux", "Pascal Vincent"],
+      "venue": "arXiv / MLSys 2021",
+      "year": 2021,
+      "fetch_status": "fetched_primary",
+      "fetched_from": "export.arxiv.org",
+      "arxiv_id": "2103.03098v1",
+      "arxiv_published": "2021-03-01",
+      "abstract": "Strong empirical evidence that one machine-learning algorithm A outperforms another one B ideally calls for multiple trials optimizing the learning pipeline over sources of variation such as data sampling, data augmentation, parameter initialization, and hyperparameters choices. This is prohibitively expensive, and corners are cut to reach conclusions. We model the whole benchmarking process, revealing that variance due to data sampling, parameter initialization and hyperparameter choice impact markedly the results. We analyze the predominant comparison methods used today in the light of this variance. We show a counter-intuitive result that adding more sources of variation to an imperfect estimator approaches better the ideal estimator at a 51 times reduction in compute cost. Building on these results, we study the error rate of detecting improvements, on five different deep-learning tasks/architectures. This study leads us to propose recommendations for performance comparisons.",
+      "sprint_relevance": "Sources of variance (data sampling, sampling of judges) must be accounted for or named as limitations; supports per-judge reporting instead of one pooled average."
+    },
+    {
+      "id": "M09",
+      "category": "experimental_practice",
+      "title": "Reporting Score Distributions Makes a Difference: Performance Study of LSTM-networks for Sequence Tagging",
+      "authors": ["Nils Reimers", "Iryna Gurevych"],
+      "venue": "arXiv / EMNLP 2017",
+      "year": 2017,
+      "fetch_status": "fetched_primary",
+      "fetched_from": "export.arxiv.org",
+      "arxiv_id": "1707.09861v1",
+      "arxiv_published": "2017-07-31",
+      "abstract": "In this paper we show that reporting a single performance score is insufficient to compare non-deterministic approaches. We demonstrate for common sequence tagging tasks that the seed value for the random number generator can result in statistically significant (p < 10^-4) differences for state-of-the-art systems. For two recent systems for NER, we observe an absolute difference of one percentage point F1-score depending on the selected seed value, making these systems perceived either as state-of-the-art or mediocre. Instead of publishing and reporting single performance scores, we propose to compare score distributions based on multiple executions. Based on the evaluation of 50.000 LSTM-networks for five sequence tagging tasks, we present network architectures that produce both superior performance as well as are more stable with respect to the remaining hyperparameters.",
+      "sprint_relevance": "Single-point scores hide variance; report per-case outcomes and intervals (already implemented in pipeline/score_judges.py) rather than a lone headline number."
+    },
+    {
+      "id": "M10",
+      "category": "experimental_practice",
+      "title": "With Little Power Comes Great Responsibility",
+      "authors": ["Dallas Card", "Peter Henderson", "Urvashi Khandelwal", "Robin Jia", "Kyle Mahowald", "Dan Jurafsky"],
+      "venue": "arXiv / EMNLP 2020",
+      "year": 2020,
+      "fetch_status": "fetched_primary",
+      "fetched_from": "export.arxiv.org",
+      "arxiv_id": "2010.06595v1",
+      "arxiv_published": "2020-10-13",
+      "abstract": "Despite its importance to experimental design, statistical power (the probability that, given a real effect, an experiment will reject the null hypothesis) has largely been ignored by the NLP community. Underpowered experiments make it more difficult to discern the difference between statistical noise and meaningful model improvements, and increase the chances of exaggerated findings. By meta-analyzing a set of existing NLP papers and datasets, we characterize typical power for a variety of settings and conclude that underpowered experiments are common in the NLP literature. In particular, for several tasks in the popular GLUE benchmark, small test sets mean that most attempted comparisons to state of the art models will not be adequately powered. Similarly, based on reasonable assumptions, we find that the most typical experimental design for human rating studies will be underpowered to detect small model differences, of the sort that are frequently studied. For machine translation, we find that typical test sets of 2000 sentences have approximately 75% power to detect differences of 1 BLEU point. To improve the situation going forward, we give an overview of best practices for power analysis in NLP and release a series of notebooks to assist with future power analyses.",
+      "sprint_relevance": "Power must be computed before claiming null results: with n = 27 or 54 paired cases, only large effects are detectable; the report must state the minimum detectable effect."
+    }
+  ],
+  "dataset_pointers": [
+    {
+      "id": "D01",
+      "dataset": "lost-caveats data/cases.jsonl",
+      "size": "54 cases (27 pairs)",
+      "unit_of_analysis": "case",
+      "group_key": "pair_id / shared source hash",
+      "split_note": "Grouped split mandatory: both members of a pair share one source document, so they must land in the same fold.",
+      "source_db_reference": "user repo anaexplores/lost-caveats (preexisting)",
+      "availability": "public repo, Apache-style LICENSE + LICENSES.md license classes"
+    },
+    {
+      "id": "D02",
+      "dataset": "Hugging Face cais/MASK (S10 in sources_content_db.json)",
+      "size": "1,000 examples in 6 public test configs (176+125+120+209+274+96); README states 1,028 across 6 archetypes",
+      "unit_of_analysis": "example (pressure prompt + belief elicitations)",
+      "group_key": "none (flat set); belief elicitations are part of the fixed per-example harness, so one analysis unit = one example under pressure",
+      "split_note": "Published test set: treat as test-only, no tuning on it; analyze per config.",
+      "source_db_reference": "S10",
+      "availability": "public HF dataset card + GitHub centerforaisafety/mask"
+    },
+    {
+      "id": "D03",
+      "dataset": "Hugging Face apart/darkbench (S11 in sources_content_db.json)",
+      "size": "660 prompts, 6 categories",
+      "unit_of_analysis": "prompt",
+      "group_key": "category (stratification key, not a leakage group)",
+      "split_note": "Published benchmark: test-only usage; fixed stratified subsample if computing budget limits, subsample documented.",
+      "source_db_reference": "S11",
+      "availability": "public HF dataset + GitHub apartresearch/DarkBench"
+    },
+    {
+      "id": "D04",
+      "dataset": "AVeriTeC official repository MichSchli/AVeriTeC (E01 in sources_content_db.json)",
+      "size": "3,568 publicly labeled claims: train 3,068 + dev 500 (counted from data/train.json and data/dev.json on 2026-11-15); the paper reports 4,568 claims in total, the remaining test-side labels are held by the shared-task organizers and are not public",
+      "unit_of_analysis": "claim",
+      "group_key": "fact_checking_article (a roundup article can carry many claims: max 90 claims per article in train, 1,358 of 3,068 train claims sit in multi-claim articles)",
+      "split_note": "Official test labels are not public; draw the sprint test side from official train.json grouped by article, stratified by label with a fixed seed; use official dev.json as the tuning pool. License CC BY-NC 4.0 per repo README.",
+      "label_vocabulary": ["Supported", "Refuted", "Not Enough Evidence", "Conflicting Evidence/Cherrypicking"],
+      "train_label_distribution": { "Supported": 849, "Refuted": 1742, "Not Enough Evidence": 282, "Conflicting Evidence/Cherrypicking": 195 },
+      "dev_label_distribution": { "Supported": 122, "Refuted": 305, "Not Enough Evidence": 35, "Conflicting Evidence/Cherrypicking": 38 },
+      "source_db_reference": "E01",
+      "availability": "GitHub MichSchli/AVeriTeC (data/train.json, data/dev.json), CC BY-NC 4.0 per repo README; HF mirror pminervini/averitec carries the same train/dev as parquet"
+    },
+    {
+      "id": "D05",
+      "dataset": "ForecastBench question streams (S14 in sources_content_db.json)",
+      "size": "1,000 dynamically refreshed questions",
+      "unit_of_analysis": "question",
+      "group_key": "none (each question independent)",
+      "split_note": "Zero-leakage by construction (questions about future events); use as a design template rather than a second judge dataset for this sprint.",
+      "source_db_reference": "S14",
+      "availability": "GitHub forecastingresearch/forecastbench and forecastbench-datasets (license per repo README, recorded from a live GitHub API check on 2026-11-15, not restated from sources_content_db.json)"
+    }
+  ],
+  "protocol": {
+    "data_preparation_checklist": [
+      "Snapshot every raw file with SHA-256, fetch date, license class and dataset version in a MANIFEST (pattern already used in lost-caveats data/MANIFEST.json).",
+      "Validate schema per dataset: required fields present, label vocabulary fixed (e.g. supported/caveated/unsupported), units defined before any split.",
+      "Define the group key (shared source, pair, conversation) before splitting; deduplicate at group level.",
+      "Log every cleaning decision; no case-level edits after the split is drawn.",
+      "Mark preexisting vs new work in README and report."
+    ],
+    "splitting_rules": [
+      "Split by GROUPS, not rows: units sharing a source, pair or conversation stay on one side (Kapoor & Narayanan M06 non-independence leakage).",
+      "Stratify on label and error_class within each side.",
+      "Fix one random seed, record it, draw the split once (Gorman & Bedrick M05; Reimers & Gurevych M09 for seed sensitivity).",
+      "Dev is used only to fix prompts, retrieval parameters and the analysis script; the test side is run exactly once (Dietterich M02 on test-set reuse).",
+      "Publicly published test sets (MASK, DarkBench) are test-only by definition; no parameter tuning on them.",
+      "Prefer data or designs that resist temporal and contamination leakage; AVeriTeC and ForecastBench are documented templates (E01, S14)."
+    ],
+    "statistical_testing_plan": [
+      "State hypotheses, conditions, metrics, tests and stopping rules BEFORE the first test-side run (Lipton & Steinhardt M07).",
+      "Unit of analysis is the case; conditions are paired on the same cases, so use the exact McNemar test for A vs B per judge (M01, M02, M04).",
+      "Binarization rule fixed BEFORE the run, because the verdict vocabulary is 3-class (supported/caveated/unsupported) while McNemar needs binary outcomes: alarm = verdict != supported (standard mode) and alarm = verdict == caveated (strict mode). The pre-existing pipeline/score_judges.py implements both modes (--strict). McNemar analyses are reported under both binarizations, and both are declared in the pre-stated analysis plan.",
+      "Report proportions with 95% Wilson intervals, not Wald (M03); report per-case misses and false alarms by id.",
+      "Compute power / minimum detectable effect for the achieved TEST-side n after the grouped split, not for the full dataset (e.g. 27 pairs split into dev/test leaves roughly 18/9 pairs, so the test-side n is about 18-19 cases depending on the pair split); a null result is interpreted against this side-specific minimum detectable effect (M10).",
+      "Correct across the family of condition comparisons (e.g. Holm) and say which family was defined (M04).",
+      "Keep judges separate in reporting; a pooled average across judges hides judge-level variance (M08, M09)."
+    ],
+    "experiment_execution_rules": [
+      "Conditions defined before the run, varying ONLY the retrieved context while holding model, prompt template and scoring constant: A = support_windows only (top-5 BM25, 120 words); B = support + caveat_windows (preexisting lost-caveats v0.1.1 behaviour); C = support + caveat windows drawn from a random OTHER source document (preserves window count and limiting-marker density, breaks relevance to the claim); D optional = caveat_windows only.",
+      "Comparison family fixed before the run: {A vs B, B vs C} mandatory, {A vs D, A vs C} optional; Holm correction applies within this declared family (M04).",
+      "One judge session per analysis unit per condition per judge; identical prompt template across conditions. AMENDED 2026-11-15, before any test-side run: judge inference runs through OpenCode subagent sessions instead of the OpenRouter API; claims are batched 20 per judge session with one independent verdict per claim inside the session, the batching is identical across all conditions and judges, and items are independent fact-checks so intra-batch interference is assessed as low and declared here. Original rule (one API call per case) retained for the OpenRouter fallback runner. AMENDED 2026-11-15 again, still before any test-side run: the four-judge panel is fixed to OpenCode Go subscription-pool models, one per family, replacing the earlier OpenCode-pool names: claude-haiku-5-5 (Anthropic), gemini-4-argon (Google), gpt-6-luna (OpenAI), deepseek-v4-pro (DeepSeek); same four families as originally planned, all cheaper or free under the subscription, so the earlier names were never run on test data.",
+      "Temperature and other sampling parameters fixed and recorded; API retries and failures logged per case.",
+      "Quote verification (quote_found_in_source levels) runs identically for every condition.",
+      "DEVIATION, logged 2026-11-15 during the test-side run: the test/A/batch00 cell for the DeepSeek judge (20 of 196 claims) could not be produced by opencode-go/deepseek-v4-pro; three attempts (including one with a no-profanity-quote instruction) were blocked by the provider content filter ('Provider blocked the response'). The cell was instead produced with the free fallback model opencode/deepseek-v4.1-flash-free, same DeepSeek family, same prompt file, same no-profanity-quote instruction. All DeepSeek A-vs-B/A-vs-C comparisons are therefore reported BOTH with this batch included (mixed-model cell, labelled) and with the batch excluded (176 claims, single model); if the two analyses disagree, the excluded-batch result is treated as primary. No other judge-batch cell used a fallback model.",
+      "Report includes: what the result establishes, what it does not, minimum detectable effect, and the Limitations and Dual-Use appendix."
+    ]
+  }
+}

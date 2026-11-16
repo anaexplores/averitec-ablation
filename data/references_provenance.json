@@ -1,0 +1,73 @@
+{
+  "purpose": "Provenance record for references added to docs/PAPER_DRAFT.md after the initial draft commit. The sprint disqualifies fabricated references, so nothing is cited from memory: every entry below was verified against its primary arXiv abstract page by a live fetch on 2026-11-15 before being cited, the same fetched_primary standard the knowledge base uses.",
+  "verified_on": "2026-11-15",
+  "references": [
+    {
+      "key": "Schlichtkrull et al., 2024",
+      "arxiv_id": "2410.23850v1",
+      "title": "The Automated Verification of Textual Claims (AVeriTeC) Shared Task",
+      "authors_verified": [
+        "Michael Schlichtkrull",
+        "Yulong Chen",
+        "Chenxi Whitehouse",
+        "Zhenyun Deng",
+        "Mubashara Akhtar",
+        "Rami Aly",
+        "Zhijiang Guo",
+        "Christos Christodoulopoulos",
+        "Oana Cocarascu",
+        "Arpit Mittal",
+        "James Thorne",
+        "Andreas Vlachos"
+      ],
+      "submitted": "2024-10-31",
+      "url": "https://arxiv.org/abs/2410.23850",
+      "facts_used_in_draft": [
+        "the AVeriTeC score credits a claim if and only if the verdict is correct AND the retrieved evidence meets a quality threshold",
+        "the winning team TUDA_MAI reached an AVeriTeC score of 63%",
+        "average AVeriTeC score across the 21 participating systems on Not Enough Evidence claims: 0.06; the winner scored 0.12 on Not Enough Evidence against 0.73 on Refuted",
+        "a common participant strategy was to ignore the two rarer labels; team Papelo prevented its system from predicting Not Enough Evidence and Conflicting Evidence, reporting that prompted LLMs overpredict these rarer labels",
+        "in the shared task human evaluation, on evidence annotators labeled Not Enough Evidence, systems predicted that label in 22.1% of cases and Refuted in 60.3%",
+        "the organisers removed fact-checking articles from the knowledge store after finding they had leaked into the evidence set for some claims"
+      ],
+      "fetch_note": "live fetch of arxiv.org/abs/2410.23850 (abstract) and arxiv.org/html/2410.23850v1 (full text) on 2026-11-15; abstract wording matches the knowledge-base entry E01 (shared_task_arxiv_id 2410.23850v1, fetched_primary from export.arxiv.org on 2026-11-15)"
+    },
+    {
+      "key": "Kadavath et al., 2022",
+      "arxiv_id": "2207.05221v4",
+      "title": "Language Models (Mostly) Know What They Know",
+      "authors_first_six_verified": [
+        "Saurav Kadavath",
+        "Tom Conerly",
+        "Amanda Askell",
+        "Tom Henighan",
+        "Dawn Drain",
+        "Ethan Perez"
+      ],
+      "n_authors": 36,
+      "submitted_v1": "2022-07-11",
+      "revised_v4": "2022-11-21",
+      "license": "CC BY 4.0",
+      "url": "https://arxiv.org/abs/2207.05221",
+      "facts_used_in_draft": [
+        "models show encouraging performance and calibration on P(True) self-evaluation of their own answers and on P(IK) predictions that they know the answer to a question"
+      ],
+      "fetch_note": "live fetch of arxiv.org/abs/2207.05221 on 2026-11-15"
+    },
+    {
+      "key": "Schlichtkrull, Guo & Vlachos, 2023",
+      "arxiv_id": "2305.13117v3",
+      "title": "AVeriTeC: A Dataset for Real-world Claim Verification with Evidence from the Web",
+      "authors_verified": ["Michael Schlichtkrull", "Zhijiang Guo", "Andreas Vlachos"],
+      "year": 2023,
+      "venue": "NeurIPS Datasets & Benchmarks / arXiv",
+      "url": "https://arxiv.org/abs/2305.13117",
+      "facts_used_in_draft": [
+        "4,568 real-world claims covering fact-checks by 50 different organizations",
+        "inter-annotator agreement of kappa = 0.619 on verdicts",
+        "the four-way label vocabulary: Supported, Refuted, Not Enough Evidence, Conflicting Evidence/Cherrypicking"
+      ],
+      "fetch_note": "verified via the knowledge-base entry E01 (fetched_primary from export.arxiv.org on 2026-11-15, exact title, authors and abstract); this is reference 1 of the report"
+    }
+  ]
+}

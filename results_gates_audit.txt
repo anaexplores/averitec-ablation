@@ -1,9 +1,9 @@
 CLEANLINESS GATES - side 'test', run registry data/run_registry.json
-generated 2026-11-15T17:16:25+00:00
+generated 2026-11-16T05:56:31+00:00
 
 [PASS] G1 Protocol freeze: amendments only before the first test-side run; deviations recorded in the protocol
         2 amendment(s) all pre-date the first test run; 1 deviation(s) carry a marker present in every protocol file they declare
-        metrics: {"amendments": 2, "deviations": 1, "first_test_run_utc": "2026-11-15T18:05:00+00:00"}
+        metrics: {"amendments": 2, "deviations": 1, "first_test_run_utc": "2026-11-15T16:13:20+00:00"}
 [PASS] G2 Label blindness: judges never see gold labels; secret labels match the source dataset
         588 secret labels recomputed from the source dataset, all identical; no leak pattern in any prompt
         metrics: {"labels_checked": 588, "label_mismatches": 0, "leak_hits": 0}
@@ -34,11 +34,12 @@ generated 2026-11-15T17:16:25+00:00
 [PASS] G12 Quote provenance: quotes verbatim from that condition's own excerpts; zero tolerance for cross-condition bleed
         2297/2352 quotes verbatim in their own condition's excerpts, cross-condition contamination 0
         metrics: {"quotes_checked": 2352, "verbatim_in_own_condition": 2297, "unmatched_anywhere": 55, "cross_condition_contamination": 0, "global_match_rate": 0.9766, "per_judge_match_rate": {"claude-haiku-5-5": 0.9949, "deepseek-v4-pro": 0.9218, "gemini-4-argon": 0.9983, "gpt-6-luna": 0.9915}}
-[WARN] G13 Session ledger: one fresh isolated session per cell, recorded; enforced for cells after required_from
-        WARN: 120 cell(s) pre-date ledger enforcement (2026-11-16T00:00:00+00:00); their session ids are marked not-retained rather than invented. Structural isolation (G11) and quote provenance (G12) still audit them.
-        metrics: {"cells": 120, "ledger_rows": 120, "unique_sessions": 0, "reused_sessions": 0, "session_id_not_retained": 120, "missing_entries": 0}
-[WARN] G10 Report traceability: every number in the draft comes from a results file; required parts present
-        WARN: report draft not written yet (docs/PAPER_DRAFT.md); gate re-runs once it exists
+[PASS] G13 Session ledger: one fresh isolated session per cell, recorded; enforced for cells after required_from
+        120 unique sessions for 120 cells, no session reused across cells
+        metrics: {"cells": 120, "ledger_rows": 120, "unique_sessions": 120, "reused_sessions": 0, "session_id_not_retained": 0, "missing_entries": 0}
+[PASS] G10 Report traceability: every number in the draft comes from a results file; required parts present
+        abstract length, mandatory appendix, preexisting/new marking and every numeric claim verified against results files
+        metrics: {"abstract_words": 190, "numbers_in_draft": 40, "links": 21}
 
-TOTAL: 13 gates, 0 FAIL, 2 WARN, 11 PASS
+TOTAL: 13 gates, 0 FAIL, 0 WARN, 13 PASS
 A FAIL blocks the claim that the run is clean: fix the artefact or record a deviation in the registry.

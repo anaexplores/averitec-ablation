@@ -35,24 +35,26 @@
     "reason": "misbar.com JS-rendered Wayback captures with no static text; declared before any judge run",
     "effective_n_after": 196
   },
-  "first_test_run_utc": "2026-11-15T18:05:00+00:00",
+  "first_test_run_utc": "2026-11-15T16:13:20+00:00",
   "protocol_events": [
     {
       "type": "amendment",
       "id": "amendment-1",
-      "recorded_utc": "2026-11-15T16:40:00+00:00",
-      "summary": "Judge inference through OpenCode subagent sessions instead of the OpenRouter API; claims batched 20 per session; identical batching across conditions and judges."
+      "recorded_utc": "2026-11-15T16:11:54+00:00",
+      "summary": "Judge inference through OpenCode subagent sessions instead of the OpenRouter API; claims batched 20 per session; identical batching across conditions and judges.",
+      "evidence": "decision materialised in commit ce005d9 (2026-11-15T16:11:54+00:00): 30 batch prompts of 20 claims plus manifests; first judge-cell session (A batch00 claude, ses_e2003f1f0ffe4C6JVV6r0tw5za) started 2026-11-15T16:13:20+00:00 per the OpenCode session store"
     },
     {
       "type": "amendment",
       "id": "amendment-2",
-      "recorded_utc": "2026-11-15T17:20:00+00:00",
-      "summary": "Judge panel fixed to the OpenCode Go pool, one model per family: claude-haiku-5-5, gemini-4-argon, gpt-6-luna, deepseek-v4-pro."
+      "recorded_utc": "2026-11-15T16:11:54+00:00",
+      "summary": "Judge panel fixed to the OpenCode Go pool, one model per family: claude-haiku-5-5, gemini-4-argon, gpt-6-luna, deepseek-v4-pro.",
+      "evidence": "commit message of ce005d9 (2026-11-15T16:11:54+00:00): 'judge panel fixed to OpenCode Go pool (amendment 2, pre-run)'; first judge-cell session started 2026-11-15T16:13:20+00:00 per the OpenCode session store"
     },
     {
       "type": "deviation",
       "id": "deviation-deepseek-A-batch00",
-      "recorded_utc": "2026-11-15T19:10:00+00:00",
+      "recorded_utc": "2026-11-15T16:24:13+00:00",
       "cell": {
         "judge": "deepseek-v4-pro",
         "condition": "A",
@@ -62,16 +64,17 @@
       "model_used": "opencode/deepseek-v4.1-flash-free",
       "reason": "Three provider content-filter blocks ('Provider blocked the response'), including one attempt with a no-profanity-quote instruction.",
       "handling": "All DeepSeek comparisons involving condition A are reported both with this batch (mixed-model cell, labelled) and without it (176 claims, single model). The excluded-batch result is primary if the two disagree.",
+      "evidence": "fallback session wrote its output at 2026-11-15T16:23:41+00:00 (ledger row for this cell, session ses_e1ffccc81ffezbm5On2XMjeD8E, OpenCode session store); the deviation marker is present in both protocol files, whose mtimes are 2026-11-15T16:24:04+00:00 and 2026-11-15T16:24:13+00:00; the first scoring commit (9a0ca70) is 2026-11-15T16:34:13+00:00, so the deviation was recorded before any analysis began; commit f7b7815 (2026-11-15T16:29:25+00:00) already names it",
       "requires_sensitivity_run": true,
       "protocol_markers": {
-        "C:/Users/Anastasia/Projects/demand radar/research/apart-epistemics-2026-11/methods_db.json": "DEVIATION, logged 2026-11-15",
-        "C:/Users/Anastasia/Projects/demand radar/research/apart-epistemics-2026-11/05_METHODS_AND_DATA_PROTOCOL.md": "Задокументированное отклонение, 15.11.2026"
+        "docs/methods_db.json": "DEVIATION, logged 2026-11-15",
+        "docs/05_METHODS_AND_DATA_PROTOCOL.md": "Задокументированное отклонение, 15.11.2026"
       }
     }
   ],
   "protocol_files": [
-    "C:/Users/Anastasia/Projects/demand radar/research/apart-epistemics-2026-11/methods_db.json",
-    "C:/Users/Anastasia/Projects/demand radar/research/apart-epistemics-2026-11/05_METHODS_AND_DATA_PROTOCOL.md"
+    "docs/methods_db.json",
+    "docs/05_METHODS_AND_DATA_PROTOCOL.md"
   ],
   "statistics_plan": {
     "primary_metric": "exact-match accuracy of the 4-way verdict against the AVeriTeC label, per (judge, condition)",
@@ -86,7 +89,9 @@
   },
   "results_files": {
     "main": "results_score_test_main.txt",
-    "deepseek_excluded": "results_score_test_deepseek_excl.txt"
+    "deepseek_excluded": "results_score_test_deepseek_excl.txt",
+    "paper_numbers": "results_paper_numbers.txt",
+    "gates_audit": "results_gates_audit.txt"
   },
   "quote_provenance": {
     "min_global_match_rate": 0.95,
@@ -97,7 +102,7 @@
   "ledger": {
     "file": "data/session_ledger.jsonl",
     "required_from_utc": "2026-11-16T00:00:00+00:00",
-    "note": "Cells produced before required_from_utc are audited structurally only; the orchestrator log was not retained as a machine artefact, so their session ids are marked not-retained rather than invented."
+    "note": "Session ids for the completed run were recovered from the OpenCode session store by pipeline/backfill_ledger_sessions.py (2026-11-15): each cell matched to exactly one succeeded session by title and output-file mtime inside the session window, model cross-checked; 120 cells -> 120 unique sessions, 5 further sessions are the registered retries/blocked attempts. Identifiers are retrieved from the store, not reconstructed."
   },
   "report": {
     "draft": "docs/PAPER_DRAFT.md",

@@ -1,0 +1,78 @@
+PAPER NUMBERS - derived from data/judge_outputs_ablation/<cond>/<judge>.jsonl
+Regenerate with: python pipeline/make_paper_numbers.py
+
+== Sample ==
+split test claims: 200
+declared exclusions: 4
+effective n per judge per condition: 196
+label distribution (effective): Supp 52/196 = 26.5%, Refu 113/196 = 57.7%, Not 18/196 = 9.2%, Conf 13/196 = 6.6%
+majority-class baseline (always Refuted): 113/196 = 57.7%
+
+== Exact-match accuracy per judge per condition ==
+claude-haiku-5-5 A: 145/196 = 74.0%
+claude-haiku-5-5 B: 146/196 = 74.5%
+claude-haiku-5-5 C: 143/196 = 73.0%
+deepseek-v4-pro A: 149/196 = 76.0%
+deepseek-v4-pro B: 146/196 = 74.5%
+deepseek-v4-pro C: 150/196 = 76.5%
+gemini-4-argon A: 146/196 = 74.5%
+gemini-4-argon B: 150/196 = 76.5%
+gemini-4-argon C: 149/196 = 76.0%
+gpt-6-luna A: 145/196 = 74.0%
+gpt-6-luna B: 147/196 = 75.0%
+gpt-6-luna C: 146/196 = 74.5%
+
+== Per-label accuracy, pooled over judges and conditions ==
+Supported: 413/624 = 66.2%
+Refuted: 1280/1356 = 94.4%
+Not Enough Evidence: 1/216 = 0.5%
+Conflicting Evidence/Cherrypicking: 68/156 = 43.6%
+
+== Predicted label distribution (how often each verdict was used) ==
+claude-haiku-5-5 A: Supp 33, Refu 128, Not 4, Conf 31
+deepseek-v4-pro A: Supp 38, Refu 143, Not 2, Conf 13
+gemini-4-argon A: Supp 40, Refu 137, Not 4, Conf 15
+gpt-6-luna A: Supp 39, Refu 128, Not 7, Conf 22
+claude-haiku-5-5 B: Supp 35, Refu 131, Not 4, Conf 26
+deepseek-v4-pro B: Supp 35, Refu 139, Not 3, Conf 19
+gemini-4-argon B: Supp 38, Refu 140, Not 3, Conf 15
+gpt-6-luna B: Supp 38, Refu 128, Not 8, Conf 22
+claude-haiku-5-5 C: Supp 34, Refu 129, Not 4, Conf 29
+deepseek-v4-pro C: Supp 40, Refu 140, Not 4, Conf 12
+gemini-4-argon C: Supp 37, Refu 140, Not 5, Conf 14
+gpt-6-luna C: Supp 41, Refu 128, Not 7, Conf 20
+pooled predictions: Supp 448/2352 = 19.0%, Refu 1611/2352 = 68.5%, Not 55/2352 = 2.3%, Conf 238/2352 = 10.1%
+
+== Confusion matrix (truth rows x predicted cols), pooled ==
+truth\pred                            Supp    Refu     Not    Conf
+Supp                                   413      88      28      95
+Refu                                    15    1280      17      44
+Not                                      8     176       1      31
+Conf                                    12      67       9      68
+
+== Verdict stability across conditions (per judge) ==
+claude-haiku-5-5: A!=B 8/196 = 4.1%, B!=C 12/196 = 6.1%, A!=C 10/196 = 5.1%, any change 15/196 = 7.7%
+deepseek-v4-pro: A!=B 16/196 = 8.2%, B!=C 14/196 = 7.1%, A!=C 12/196 = 6.1%, any change 20/196 = 10.2%
+gemini-4-argon: A!=B 14/196 = 7.1%, B!=C 8/196 = 4.1%, A!=C 14/196 = 7.1%, any change 18/196 = 9.2%
+gpt-6-luna: A!=B 12/196 = 6.1%, B!=C 10/196 = 5.1%, A!=C 14/196 = 7.1%, any change 18/196 = 9.2%
+
+== Inter-judge agreement (raw pairwise, per condition) ==
+condition A: 1037/1176 = 88.2%
+condition B: 1059/1176 = 90.1%
+condition C: 1027/1176 = 87.3%
+
+== Minimum detectable effect ==
+exact McNemar, n=196 paired claims, Holm across the 2 mandatory comparisons
+needs >= 7 net discordant pairs (two-sided p=0.0156, adjusted 0.0313)
+7/196 = 3.6% accuracy difference is the floor of detectability
+
+== from the gates audit ==
+200 split claims - 4 declared exclusions = 196 effective, identical in every condition; labels of the dropped claims: ['Refuted', 'Supported', 'Supported', 'Supported']
+== from the gates audit ==
+metrics: {"split_n": 200, "declared_exclusions": 4, "effective_n_per_condition": {"A": 196, "B": 196, "C": 196}, "labels_of_dropped": ["Refuted", "Supported", "Supported", "Supported"]}
+== from the gates audit ==
+metrics: {"quotes_checked": 2352, "verbatim_in_own_condition": 2297, "unmatched_anywhere": 55, "cross_condition_contamination": 0, "global_match_rate": 0.9766, "per_judge_match_rate": {"claude-haiku-5-5": 0.9949, "deepseek-v4-pro": 0.9218, "gemini-4-argon": 0.9983, "gpt-6-luna": 0.9915}}
+== from the gates audit ==
+TOTAL: 13 gates, 0 FAIL, 0 WARN, 13 PASS
+deviation cells: 1
+deepseek A batch00 excluded sensitivity n: 176
